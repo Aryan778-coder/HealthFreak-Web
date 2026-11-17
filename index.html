@@ -1,0 +1,113 @@
+<!doctype html>
+<html lang="en" class="dark scroll-smooth">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    
+    <!-- Primary SEO Meta Tags -->
+    <title>HealthFreak — Your Health. Your AI. Your Lifestyle. | Official App</title>
+    <meta name="title" content="HealthFreak — Your Health. Your AI. Your Lifestyle. | Official App" />
+    <meta
+      name="description"
+      content="Download HealthFreak — the official all-in-one AI wellness app. Track nutrition, macros, hydration, and workouts with Coach Alex, your real-time AI personal voice coach."
+    />
+    <meta
+      name="keywords"
+      content="HealthFreak, HealthFreak App, HealthFreak AI, HealthFreak Wellness App, HealthFreak Download, Coach Alex, AI health coach, macro tracker, water bottle widget, calorie counter, fitness AI"
+    />
+    <meta name="author" content="Abhishek & Aryan" />
+    <meta name="robots" content="index, follow" />
+    <link rel="canonical" href="https://healthfreak.app/" />
+
+    <!-- Favicon & Icons -->
+    <link rel="icon" type="image/png" href="/favicon.png" />
+    <link rel="shortcut icon" href="/favicon.ico" />
+    <link rel="apple-touch-icon" href="/assets/logo/HealthFreakLogoBlackbg.png" />
+    <link rel="manifest" href="/site.webmanifest" />
+    <meta name="theme-color" content="#171719" />
+
+    <!-- Open Graph / Facebook / WhatsApp -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://healthfreak.app/" />
+    <meta property="og:title" content="HealthFreak — Your Health. Your AI. Your Lifestyle." />
+    <meta
+      property="og:description"
+      content="Transform your daily vitality with HealthFreak — nutrition macro tracking, smart hydration, biometric fitness, and live voice coaching in one unified app."
+    />
+    <meta property="og:image" content="/assets/logo/HealthFreakLogoBlackbg.png" />
+    <meta property="og:site_name" content="HealthFreak" />
+
+    <!-- Twitter / X -->
+    <meta property="twitter:card" content="summary_large_image" />
+    <meta property="twitter:url" content="https://healthfreak.app/" />
+    <meta property="twitter:title" content="HealthFreak — Your Health. Your AI. Your Lifestyle." />
+    <meta
+      property="twitter:description"
+      content="Download HealthFreak: all-in-one AI wellness companion with Coach Alex voice coaching, smart water bottle widget, and camera food scanning."
+    />
+    <meta property="twitter:image" content="/assets/logo/HealthFreakLogoBlackbg.png" />
+
+    <!-- Google Fonts: DM Serif Display & Manrope (Matched from HealthFreak Mobile App) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Manrope:wght@300;400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- Structured Data (JSON-LD) for Google Search Console & Rich Snippets -->
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@graph": [
+          {
+            "@type": "SoftwareApplication",
+            "name": "HealthFreak",
+            "operatingSystem": "ANDROID",
+            "applicationCategory": "HealthApplication",
+            "offers": {
+              "@type": "Offer",
+              "price": "0",
+              "priceCurrency": "USD"
+            },
+            "description": "HealthFreak is the all-in-one AI wellness companion uniting nutrition macro tracking, smart hydration, biometric fitness, and real-time voice coaching in one seamless experience.",
+            "image": "https://healthfreak.app/assets/logo/HealthFreakLogoBlackbg.png",
+            "author": {
+              "@type": "Organization",
+              "name": "HealthFreak"
+            }
+          },
+          {
+            "@type": "Organization",
+            "name": "HealthFreak",
+            "url": "https://healthfreak.app",
+            "logo": "https://healthfreak.app/assets/logo/HealthFreakLogoTransparent.png",
+            "founders": [
+              {
+                "@type": "Person",
+                "name": "Abhishek"
+              },
+              {
+                "@type": "Person",
+                "name": "Aryan"
+              }
+            ]
+          }
+        ]
+      }
+    </script>
+  </head>
+  <body class="bg-[#171719] text-white selection:bg-[#315BFF] selection:text-white antialiased overflow-x-hidden">
+    <!-- Optical Refraction Filter for Liquid Glass Effects -->
+    <svg style="position: absolute; width: 0; height: 0; pointer-events: none;" aria-hidden="true">
+      <defs>
+        <filter id="liquid-refract" x="-20%" y="-20%" width="140%" height="140%">
+          <feTurbulence type="fractalNoise" baseFrequency="0.02" numOctaves="2" result="noise" />
+          <feDisplacementMap in="SourceGraphic" in2="noise" scale="6" xChannelSelector="R" yChannelSelector="G" />
+        </filter>
+      </defs>
+    </svg>
+    <div id="root"></div>
+    <script type="module" src="/src/main.jsx"></script>
+  </body>
+</html>

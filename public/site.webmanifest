@@ -1,0 +1,17 @@
+{
+  "name": "HealthFreak — AI Wellness Companion",
+  "short_name": "HealthFreak",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#070b09",
+  "theme_color": "#10b981",
+  "description": "Your Health. Your AI. Your Lifestyle. Official HealthFreak Application.",
+  "icons": [
+    {
+      "src": "/assets/logo/HealthFreakLogoBlackbg.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ]
+}
