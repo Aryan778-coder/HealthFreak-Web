@@ -11,8 +11,10 @@ import {
   Flame,
   Activity,
   Heart,
-  LineChart
+  LineChart,
+  RotateCw
 } from "lucide-react";
+import BiometricGyroscope from "@/components/BiometricGyroscope";
 
 const MODULES = [
   {
@@ -74,6 +76,16 @@ const MODULES = [
     badge: "bg-[#FF6659]/15 text-[#FF6659] border-[#FF6659]/30",
     description: "Track the interplay between deep sleep hours, skin recovery, and subjective emotional energy levels.",
     icon: Heart,
+  },
+  {
+    id: "gimbal",
+    title: "3D Biometric Synapse Gimbal",
+    category: "Sensory Physics",
+    tagline: "3-Axis Kinetic Telemetry",
+    accent: "#D5F45B", // Acid Lime
+    badge: "bg-[#D5F45B]/20 text-[#171719] border-[#D5F45B]/40",
+    description: "Interactive 3D gyroscope engine that computes real-time cardiovascular momentum, neural readiness, and metabolic torque with tactile drag physics.",
+    icon: RotateCw,
   },
 ];
 
@@ -482,6 +494,20 @@ export const FeaturesSection = () => {
                           {checkInOptions[checkInState].note}
                         </div>
                       </div>
+                    </motion.div>
+                  )}
+
+                  {/* Playground 7: 3D Biometric Synapse Gimbal */}
+                  {activeModuleId === "gimbal" && (
+                    <motion.div
+                      key="module-gimbal"
+                      initial={{ opacity: 0, scale: 0.96 }}
+                      animate={{ opacity: 1, scale: 1 }}
+                      exit={{ opacity: 0, scale: 0.96 }}
+                      transition={{ duration: 0.3 }}
+                      className="flex flex-col items-center justify-center p-2"
+                    >
+                      <BiometricGyroscope className="w-full max-w-[420px]" />
                     </motion.div>
                   )}
                 </AnimatePresence>

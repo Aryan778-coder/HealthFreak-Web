@@ -2,6 +2,9 @@ import { useRef, useState } from "react";
 import { siteConfig } from "@/config/site";
 import Magnet from "@/components/Magnet";
 import ShinyText from "@/components/ShinyText";
+import SurrealHero3D from "@/components/SurrealHero3D";
+import KineticTitle from "@/components/KineticTypography";
+import ShaderCanvas from "@/components/ShaderCanvas";
 import { gsap, ScrollTrigger, useGSAP } from "@/utils/gsapSetup";
 import {
   Droplets,
@@ -10,7 +13,8 @@ import {
   Zap,
   PhoneCall,
   CheckCircle2,
-  Compass
+  Compass,
+  Sparkles,
 } from "lucide-react";
 
 export const HeroSection = () => {
@@ -20,12 +24,12 @@ export const HeroSection = () => {
   const subtitleRef = useRef(null);
   const ctaRef = useRef(null);
   const phoneWrapperRef = useRef(null);
-  const phoneInnerRef = useRef(null);
   const badgeRef = useRef(null);
   const satellite1Ref = useRef(null);
   const satellite2Ref = useRef(null);
 
   const [mousePos, setMousePos] = useState({ x: 0, y: 0 });
+  const [scrollProgress, setScrollProgress] = useState(0);
 
   // Mouse Parallax for the 3D phone
   const handleMouseMove = (e) => {
@@ -48,19 +52,22 @@ export const HeroSection = () => {
         scrollTrigger: {
           trigger: heroRef.current,
           start: "top top",
-          end: "+=130%",
+          end: "+=140%",
           scrub: 1.2,
           pin: true,
           anticipatePin: 1,
           invalidateOnRefresh: true,
+          onUpdate: (self) => {
+            setScrollProgress(self.progress);
+          },
         },
       });
 
-      // 1. Kinetic headline parting & fading
+      // 1. Kinetic headline parting & scaling
       tl.to(
         titleLeftRef.current,
         {
-          xPercent: -45,
+          xPercent: -40,
           opacity: 0,
           scale: 1.15,
           ease: "power2.out",
@@ -71,7 +78,7 @@ export const HeroSection = () => {
       tl.to(
         titleRightRef.current,
         {
-          xPercent: 45,
+          xPercent: 40,
           opacity: 0,
           scale: 1.15,
           ease: "power2.out",
@@ -120,8 +127,8 @@ export const HeroSection = () => {
       tl.to(
         phoneWrapperRef.current,
         {
-          scale: 1.55,
-          y: 40,
+          scale: 1.48,
+          y: 35,
           rotateX: 0,
           rotateY: 0,
           ease: "power2.inOut",
@@ -144,20 +151,26 @@ export const HeroSection = () => {
       ref={heroRef}
       onMouseMove={handleMouseMove}
       onMouseLeave={handleMouseLeave}
-      className="relative min-h-screen w-full flex flex-col justify-center items-center overflow-hidden bg-[#171D36] text-white select-none"
+      className="relative min-h-screen w-full flex flex-col justify-center items-center overflow-hidden bg-[#101322] text-white select-none"
     >
-      {/* 1. Kinetic Ambient Atmospheric Lighting */}
+      {/* 1. Surreal 3D WebGL Canvas Layer */}
+      <SurrealHero3D scrollProgress={scrollProgress} />
+
+      {/* 2. WebGL Liquid Chromatic Aberration Shader Canvas */}
+      <ShaderCanvas intensity={0.65} interactive={true} />
+
+      {/* 3. Kinetic Ambient Lighting */}
       <div className="absolute inset-0 pointer-events-none -z-10 overflow-hidden">
         {/* Cobalt Light Burst */}
-        <div className="absolute -top-32 left-1/4 w-[800px] h-[800px] bg-[#315BFF]/25 rounded-full blur-[200px]" />
+        <div className="absolute -top-32 left-1/4 w-[800px] h-[800px] bg-[#315BFF]/20 rounded-full blur-[200px]" />
         {/* Coral Ambient Flare */}
-        <div className="absolute top-1/2 -right-20 w-[600px] h-[600px] bg-[#FF6659]/18 rounded-full blur-[180px]" />
-        {/* Lavender Bottom Depth */}
-        <div className="absolute -bottom-28 left-1/3 w-[700px] h-[600px] bg-[#B9A8FF]/18 rounded-full blur-[200px]" />
-        
+        <div className="absolute top-1/2 -right-20 w-[600px] h-[600px] bg-[#FF6659]/15 rounded-full blur-[180px]" />
+        {/* Lavender Depth */}
+        <div className="absolute -bottom-28 left-1/3 w-[700px] h-[600px] bg-[#B9A8FF]/15 rounded-full blur-[200px]" />
+
         {/* Film Grain Texture Overlay */}
         <div
-          className="absolute inset-0 opacity-[0.06] pointer-events-none mix-blend-overlay"
+          className="absolute inset-0 opacity-[0.05] pointer-events-none mix-blend-overlay"
           style={{
             backgroundImage: "url('/assets/glass_grain_texture.png')",
             backgroundRepeat: "repeat",
@@ -165,18 +178,18 @@ export const HeroSection = () => {
         />
       </div>
 
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 w-full pt-20 pb-12">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 w-full pt-16 pb-8 pointer-events-none">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
           {/* Left Column: Expressive Typography */}
-          <div className="lg:col-span-7 flex flex-col items-center lg:items-start text-center lg:text-left z-20">
+          <div className="lg:col-span-7 flex flex-col items-center lg:items-start text-center lg:text-left z-20 pointer-events-auto">
             {/* Shimmering Badge */}
             <div
               ref={badgeRef}
-              className="inline-flex items-center gap-2.5 px-4 py-1.5 rounded-full bg-[#315BFF]/20 border border-[#315BFF]/40 text-xs font-mono font-bold text-white mb-6 shadow-[0_0_25px_rgba(49,91,255,0.4)]"
+              className="inline-flex items-center gap-2.5 px-4 py-1.5 rounded-full bg-[#315BFF]/20 border border-[#315BFF]/40 text-xs font-mono font-bold text-white mb-4 shadow-[0_0_25px_rgba(49,91,255,0.4)]"
             >
               <span className="w-2 h-2 rounded-full bg-[#D5F45B] animate-pulse" />
               <ShinyText
-                text="BIOMETRIC INTELLIGENCE ENGINE"
+                text="SURREAL 3D BIOMETRIC INTELLIGENCE"
                 color="#B9BAC4"
                 shineColor="#FFFFFF"
                 speed={2.2}
@@ -184,13 +197,20 @@ export const HeroSection = () => {
               />
             </div>
 
-            {/* Oversized Headline split into Left and Right animation targets */}
-            <h1 className="font-serif text-4xl sm:text-6xl lg:text-7xl font-bold tracking-tight text-[#F4F0E8] leading-[1.05] mb-6">
-              <span ref={titleLeftRef} className="block will-change-transform">
-                Revolutionize how
-              </span>
+            {/* Extreme Kinetic Typography Title */}
+            <div ref={titleLeftRef} className="w-full text-center lg:text-left mb-2">
+              <KineticTitle
+                text="HEALTHFREAK"
+                subtitle="NEURAL METABOLIC OS"
+                accentColor="#D5F45B"
+                className="my-1"
+              />
+            </div>
+
+            {/* Editorial Heading */}
+            <h1 className="font-serif text-3xl sm:text-5xl lg:text-6xl font-bold tracking-tight text-[#F4F0E8] leading-[1.08] mb-5">
               <span ref={titleRightRef} className="block mt-1 text-transparent bg-clip-text bg-gradient-to-r from-[#315BFF] via-[#B9A8FF] to-[#D5F45B] will-change-transform">
-                your body fuels & speaks.
+                Where your body fuels & speaks.
               </span>
             </h1>
 
@@ -199,7 +219,7 @@ export const HeroSection = () => {
               ref={subtitleRef}
               className="text-base sm:text-lg text-[#B9BAC4] max-w-xl leading-relaxed mb-8"
             >
-              Stop juggling separate apps for calorie logging, water reminders, step counting, and advice.
+              Stop juggling fragmented apps for calorie logging, water timers, step counters, and advice.
               HealthFreak unites computer-vision meal scanning, liquid glass hydration, and <strong>Coach Alex</strong> in real time.
             </p>
 
@@ -223,18 +243,18 @@ export const HeroSection = () => {
               </Magnet>
 
               <a
-                href="#features"
+                href="#choreography"
                 data-cursor="pointer"
                 data-cursor-text="EXPLORE"
                 className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-7 py-4 rounded-2xl text-sm font-bold text-white bg-white/5 hover:bg-white/10 border border-white/15 backdrop-blur-md transition-all duration-300 hover:border-[#315BFF]"
               >
                 <Compass className="w-4 h-4 text-[#B9A8FF]" />
-                <span>Explore Biometric Lab</span>
+                <span>3D Choreography</span>
               </a>
             </div>
 
             {/* Trust Telemetry Strip */}
-            <div className="mt-9 pt-5 border-t border-white/10 flex flex-wrap items-center justify-center lg:justify-start gap-6 text-xs text-[#B9BAC4]">
+            <div className="mt-8 pt-4 border-t border-white/10 flex flex-wrap items-center justify-center lg:justify-start gap-6 text-xs text-[#B9BAC4]">
               <div className="flex items-center gap-1.5">
                 <CheckCircle2 className="w-4 h-4 text-[#D5F45B]" />
                 <span>Zero Ads or Distractions</span>
@@ -251,7 +271,7 @@ export const HeroSection = () => {
           </div>
 
           {/* Right Column: 3D Hardware Smartphone Stage */}
-          <div className="lg:col-span-5 flex justify-center relative items-center">
+          <div className="lg:col-span-5 flex justify-center relative items-center pointer-events-auto">
             {/* Phone Wrapper with Scroll-Triggered Scaling & Perspective */}
             <div
               ref={phoneWrapperRef}
@@ -260,148 +280,152 @@ export const HeroSection = () => {
                 perspective: "1200px",
               }}
             >
+              {/* Outer Glow Halo behind Phone */}
+              <div className="absolute -inset-4 bg-gradient-to-tr from-[#315BFF]/35 via-[#D5F45B]/20 to-[#FF6659]/30 rounded-[56px] blur-2xl opacity-75 -z-10" />
+
+              {/* Realistic Titanium Phone Chassis with Specular Glare */}
               <div
-                ref={phoneInnerRef}
+                className="relative w-[285px] sm:w-[320px] md:w-[340px] h-[580px] sm:h-[640px] md:h-[680px] rounded-[50px] p-[10px] bg-gradient-to-b from-[#4A4E5A] via-[#232733] to-[#12151E] shadow-[0_30px_90px_rgba(0,0,0,0.85),_0_0_0_1px_rgba(255,255,255,0.18)_inset] transition-transform duration-200 ease-out"
                 style={{
-                  transform: `rotateY(${mousePos.x * 16}deg) rotateX(${-mousePos.y * 12}deg)`,
-                  transition: "transform 0.15s ease-out",
+                  transform: `rotateX(${-mousePos.y * 18}deg) rotateY(${mousePos.x * 22}deg)`,
+                  transformStyle: "preserve-3d",
                 }}
-                data-cursor="pointer"
-                data-cursor-text="VIEW"
-                className="relative w-[300px] sm:w-[335px] rounded-[48px] p-3.5 bg-gradient-to-b from-[#2D334D] via-[#1E2338] to-[#121524] border-[3px] border-[#444E75] shadow-[0_30px_90px_rgba(0,0,0,0.85),0_0_45px_rgba(49,91,255,0.35)]"
               >
-                {/* Dynamic Island */}
-                <div className="absolute top-4 left-1/2 -translate-x-1/2 w-28 h-4 bg-black rounded-full z-30 flex items-center justify-end px-3">
-                  <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse" />
-                </div>
+                {/* Titanium Rim Highlight */}
+                <div className="absolute inset-0 rounded-[50px] border border-white/25 pointer-events-none" />
 
-                {/* Genuine HealthFreak Interface Display */}
-                <div className="rounded-[36px] bg-[#0E111C] overflow-hidden border border-[#2B324D] min-h-[465px] flex flex-col justify-between p-4 text-left relative">
-                  {/* Diagonal Specular Sheen */}
-                  <div className="pointer-events-none absolute inset-0 bg-gradient-to-tr from-transparent via-white/[0.06] to-transparent z-20" />
-
-                  {/* Status Bar */}
-                  <div className="flex justify-between items-center text-[10px] font-semibold text-[#B9BAC4] mb-3 px-2">
-                    <span>9:41</span>
+                {/* Glass Front Screen Frame */}
+                <div className="w-full h-full rounded-[42px] overflow-hidden bg-black relative flex flex-col justify-between">
+                  {/* Dynamic Island Notch */}
+                  <div className="absolute top-3 left-1/2 -translate-x-1/2 w-28 h-5 bg-black rounded-full z-30 flex items-center justify-between px-3.5 border border-white/10">
+                    <div className="w-2 h-2 rounded-full bg-[#171D36] border border-white/20" />
                     <div className="flex items-center gap-1.5">
-                      <span className="text-[#D5F45B] font-bold">5G</span>
-                      <span>100%</span>
+                      <span className="w-1.5 h-1.5 rounded-full bg-[#D5F45B] animate-pulse" />
+                      <span className="text-[9px] font-mono font-bold text-[#D5F45B]">
+                        ALEX LIVE
+                      </span>
                     </div>
                   </div>
 
-                  {/* Header User Banner */}
-                  <div className="flex justify-between items-center p-3 rounded-2xl bg-[#171D36] border border-[#2B3456]">
-                    <div className="flex items-center gap-2.5">
-                      <div className="w-9 h-9 rounded-xl overflow-hidden border border-[#315BFF]">
-                        <img
-                          src="/assets/coach_alex.png"
-                          alt="Coach Alex Avatar"
-                          className="w-full h-full object-cover"
-                        />
+                  {/* Real Application UI Screenshot */}
+                  <div className="relative w-full h-full flex flex-col">
+                    <img
+                      src="/assets/healthy_bowl_clean.png"
+                      alt="HealthFreak Vision Screen"
+                      className="w-full h-full object-cover"
+                    />
+
+                    {/* Laser Scanner Reticle Overlay */}
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-black/30 pointer-events-none" />
+
+                    <div className="absolute top-16 left-4 right-4 flex justify-between items-center z-20">
+                      <div className="px-3 py-1 rounded-full bg-black/60 backdrop-blur-md border border-white/20 text-[10px] font-mono text-white flex items-center gap-1.5">
+                        <Sparkles className="w-3 h-3 text-[#D5F45B]" />
+                        <span>AI RECOGNITION</span>
                       </div>
-                      <div>
-                        <div className="text-[10px] text-[#B9BAC4]">Welcome back</div>
-                        <div className="text-xs font-bold text-white">Aryan's Vitality</div>
+                      <span className="text-[10px] font-mono text-[#D5F45B] font-bold">
+                        99.4% CONFIDENCE
+                      </span>
+                    </div>
+
+                    {/* Real-time Nutrition Telemetry Card */}
+                    <div className="absolute bottom-6 left-4 right-4 p-4 rounded-2xl bg-black/70 backdrop-blur-xl border border-white/20 shadow-2xl z-20">
+                      <div className="flex items-center justify-between mb-2">
+                        <span className="text-xs font-bold text-white tracking-wide">
+                          Avocado Quinoa Bowl
+                        </span>
+                        <span className="text-xs font-mono font-bold text-[#D5F45B]">
+                          540 kcal
+                        </span>
+                      </div>
+                      <div className="grid grid-cols-3 gap-2 text-[10px] font-mono text-zinc-300 pt-2 border-t border-white/10">
+                        <div>
+                          <div className="text-zinc-500">PRO</div>
+                          <div className="font-bold text-white">38g</div>
+                        </div>
+                        <div>
+                          <div className="text-zinc-500">CARB</div>
+                          <div className="font-bold text-white">44g</div>
+                        </div>
+                        <div>
+                          <div className="text-zinc-500">FAT</div>
+                          <div className="font-bold text-white">18g</div>
+                        </div>
                       </div>
                     </div>
-                    <span className="text-[10px] font-bold px-2 py-0.5 rounded-full bg-[#FF6659]/20 text-[#FF6659] border border-[#FF6659]/30">
-                      👑 18 Streak
-                    </span>
                   </div>
 
-                  {/* Live Calorie & Macro Target Card */}
-                  <div className="p-3.5 rounded-2xl bg-[#171D36] border border-[#2B3456] space-y-2.5 my-2">
-                    <div className="flex justify-between items-center text-xs">
-                      <span className="font-bold text-white">Calorie Target</span>
-                      <span className="font-mono font-extrabold text-[#D5F45B]">1,840 / 2,300 kcal</span>
-                    </div>
-                    <div className="w-full h-2.5 rounded-full bg-[#0E111C] overflow-hidden">
-                      <div className="h-full bg-gradient-to-r from-[#315BFF] via-[#B9A8FF] to-[#D5F45B] w-[80%] rounded-full shadow-[0_0_12px_rgba(49,91,255,0.6)]" />
-                    </div>
-                    <div className="grid grid-cols-3 gap-1.5 text-center text-[10px] pt-1">
-                      <div className="p-1.5 rounded-lg bg-[#0E111C] border border-[#222A46]">
-                        <span className="text-neutral-400 block text-[8px] uppercase">Protein</span>
-                        <strong className="text-[#315BFF] font-mono">145g</strong>
-                      </div>
-                      <div className="p-1.5 rounded-lg bg-[#0E111C] border border-[#222A46]">
-                        <span className="text-neutral-400 block text-[8px] uppercase">Carbs</span>
-                        <strong className="text-[#B9A8FF] font-mono">190g</strong>
-                      </div>
-                      <div className="p-1.5 rounded-lg bg-[#0E111C] border border-[#222A46]">
-                        <span className="text-neutral-400 block text-[8px] uppercase">Fats</span>
-                        <strong className="text-[#FF6659] font-mono">52g</strong>
-                      </div>
-                    </div>
-                  </div>
-
-                  {/* Hydration Mini Banner */}
-                  <div className="p-2.5 rounded-xl bg-[#171D36] border border-[#2B3456] flex items-center justify-between">
-                    <div className="flex items-center gap-2">
-                      <Droplets className="w-4 h-4 text-[#315BFF]" />
-                      <span className="text-xs font-bold text-white">Hydration Target</span>
-                    </div>
-                    <span className="text-xs font-mono font-bold text-[#315BFF]">2,450 / 3,200 mL (76%)</span>
-                  </div>
-
-                  {/* Coach Alex Live Call Audio Strip */}
-                  <div className="p-2.5 rounded-xl bg-[#12162A] border border-[#315BFF]/30 flex items-center justify-between mt-2">
-                    <div className="flex items-center gap-2">
-                      <PhoneCall className="w-3.5 h-3.5 text-[#B9A8FF] animate-pulse" />
-                      <span className="text-[11px] font-bold text-white">Coach Alex Online</span>
-                    </div>
-                    <div className="flex items-center gap-1 h-3.5">
-                      {[6, 12, 16, 9, 14, 8].map((h, i) => (
-                        <div
-                          key={i}
-                          className="w-0.5 bg-[#B9A8FF] rounded-full animate-wave-bar"
-                          style={{ height: `${h}px`, animationDelay: `${i * 0.1}s` }}
-                        />
-                      ))}
-                    </div>
-                  </div>
+                  {/* Specular Glare Layer */}
+                  <div
+                    className="absolute inset-0 pointer-events-none opacity-40 mix-blend-screen rounded-[42px]"
+                    style={{
+                      background:
+                        "linear-gradient(115deg, rgba(255,255,255,0.7) 0%, rgba(255,255,255,0) 35%, rgba(255,255,255,0) 70%, rgba(255,255,255,0.2) 100%)",
+                    }}
+                  />
                 </div>
               </div>
-            </div>
 
-            {/* Floating Orbiting Satellite Badge: AI Vision */}
-            <div
-              ref={satellite1Ref}
-              data-cursor="pointer"
-              data-cursor-text="SCAN"
-              className="hidden sm:flex absolute -top-8 -left-12 p-3 rounded-2xl bg-[#171719]/90 backdrop-blur-xl border border-[#315BFF]/40 shadow-2xl items-center gap-3 z-30 will-change-transform"
-            >
-              <div className="w-10 h-10 rounded-xl overflow-hidden bg-[#24242A] border border-[#315BFF]/50 shrink-0">
-                <img
-                  src="/assets/healthy_bowl_clean.png"
-                  alt="Meal preview"
-                  className="w-full h-full object-cover"
-                />
-              </div>
-              <div className="text-left text-xs">
-                <div className="font-bold text-white flex items-center gap-1.5">
-                  Meal Recognized
-                  <span className="w-1.5 h-1.5 rounded-full bg-[#D5F45B] animate-pulse" />
+              {/* Floating Satellite 1: Liquid Glass Hydration Gauge */}
+              <div
+                ref={satellite1Ref}
+                className="absolute -left-12 bottom-20 z-20 p-3.5 rounded-2xl bg-[#171D36]/85 backdrop-blur-xl border border-white/20 shadow-2xl flex items-center gap-3 transition-transform duration-300"
+                style={{
+                  transform: `translate(${mousePos.x * -25}px, ${mousePos.y * -25}px)`,
+                }}
+              >
+                <div className="w-10 h-10 rounded-xl bg-[#315BFF]/20 border border-[#315BFF]/40 flex items-center justify-center text-[#315BFF]">
+                  <Droplets className="w-5 h-5 animate-bounce" />
                 </div>
-                <span className="text-[10px] text-[#B9BAC4]">520 kcal • 42g Prot</span>
+                <div>
+                  <div className="text-[10px] font-mono text-[#B9A8FF] font-bold">
+                    HYDRATION PULSE
+                  </div>
+                  <div className="text-sm font-extrabold text-white">2,750 mL</div>
+                </div>
               </div>
-            </div>
 
-            {/* Floating Orbiting Satellite Badge: Live Step Sensors */}
-            <div
-              ref={satellite2Ref}
-              data-cursor="pointer"
-              data-cursor-text="STEPS"
-              className="hidden sm:flex absolute -bottom-8 -right-8 p-3 rounded-2xl bg-[#171719]/90 backdrop-blur-xl border border-[#D5F45B]/40 shadow-2xl items-center gap-3 z-30 will-change-transform"
-            >
-              <div className="w-9 h-9 rounded-xl bg-[#D5F45B]/15 border border-[#D5F45B]/30 flex items-center justify-center text-[#D5F45B]">
-                <Activity className="w-5 h-5" />
-              </div>
-              <div className="text-left text-xs">
-                <div className="font-bold text-white">10,482 Steps Today</div>
-                <span className="text-[10px] text-[#D5F45B] font-semibold">624 Active kcal burned</span>
+              {/* Floating Satellite 2: Accelerometer Step Matrix */}
+              <div
+                ref={satellite2Ref}
+                className="absolute -right-8 top-24 z-20 p-3.5 rounded-2xl bg-[#171D36]/85 backdrop-blur-xl border border-white/20 shadow-2xl flex items-center gap-3 transition-transform duration-300"
+                style={{
+                  transform: `translate(${mousePos.x * 25}px, ${mousePos.y * 25}px)`,
+                }}
+              >
+                <div className="w-10 h-10 rounded-xl bg-[#D5F45B]/20 border border-[#D5F45B]/40 flex items-center justify-center text-[#D5F45B]">
+                  <Activity className="w-5 h-5" />
+                </div>
+                <div>
+                  <div className="text-[10px] font-mono text-[#D5F45B] font-bold">
+                    DAILY TARGET
+                  </div>
+                  <div className="text-sm font-extrabold text-white">10,482 Steps</div>
+                </div>
               </div>
             </div>
           </div>
+        </div>
+      </div>
+
+      {/* Kinetic Marquee Ticker */}
+      <div className="absolute bottom-2 left-0 right-0 py-2.5 overflow-hidden border-t border-b border-white/10 bg-[#101322]/80 backdrop-blur-md z-10 pointer-events-none">
+        <div className="flex whitespace-nowrap animate-marquee">
+          {Array.from({ length: 6 }).map((_, i) => (
+            <span
+              key={i}
+              className="mx-4 text-[11px] font-mono tracking-widest text-[#B9BAC4] uppercase flex items-center gap-4"
+            >
+              <span>MULTIMODAL AI VISION</span>
+              <span className="text-[#315BFF]">·</span>
+              <span>LIVEKIT SUB-240MS SPEECH</span>
+              <span className="text-[#FF6659]">·</span>
+              <span>LIQUID GLASS GAUGES</span>
+              <span className="text-[#D5F45B]">·</span>
+              <span>ZERO FRAGMENTATION</span>
+              <span className="text-[#B9A8FF]">·</span>
+            </span>
+          ))}
         </div>
       </div>
     </section>

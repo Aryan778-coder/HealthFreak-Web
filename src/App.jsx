@@ -2,6 +2,7 @@ import { CustomCursor } from "@/components/CustomCursor";
 import { Navbar } from "@/components/Navbar";
 import { HeroSection } from "@/components/HeroSection";
 import { AboutSection } from "@/components/AboutSection";
+import ImpossiblePhoneChoreography from "@/components/ImpossiblePhoneChoreography";
 import { PinnedScrollExperience } from "@/components/PinnedScrollExperience";
 import { FeaturesSection } from "@/components/FeaturesSection";
 import { ScreenshotsSection } from "@/components/ScreenshotsSection";
@@ -20,32 +21,37 @@ export default function App() {
       <Navbar />
 
       <main className="flex-1 w-full flex flex-col">
-        {/* Act 1: Cinematic Deep Midnight Hero */}
+        {/* Act 1: Surreal 3D Hero + Kinetic Typography + ShaderCanvas */}
         <HeroSection />
 
         {/* Act 2: Warm Ivory Editorial Manifesto */}
         <AboutSection />
 
-        {/* Act 3: MotionSites-Level Pinned Scroll Storytelling (360vh) */}
+        {/* Act 3: Impossible Smartphone Choreography (Triad -> Z-Explosion -> Orbit -> Convergence) */}
+        <div id="choreography">
+          <ImpossiblePhoneChoreography />
+        </div>
+
+        {/* Act 4: MotionSites Pinned Scroll Deep Dive (Multimodal, Steps, Water, Voice) */}
         <PinnedScrollExperience />
 
-        {/* Act 4: Warm Ivory Interactive Biometric Laboratory */}
+        {/* Act 5: Warm Ivory Interactive Biometric Laboratory */}
         <FeaturesSection />
 
-        {/* Act 5: Deep Midnight Hardware Screenshot Showcase */}
+        {/* Act 6: Deep Midnight Hardware Screenshot Showcase */}
         <ScreenshotsSection />
 
-        {/* Act 6: Warm Ivory Anti-Fragmentation Comparison */}
+        {/* Act 7: Warm Ivory Anti-Fragmentation Comparison */}
         <WhyHealthFreakSection />
 
-        {/* Act 7: Deep Charcoal & Lavender Coach Alex Voice Studio */}
+        {/* Act 8: Deep Charcoal & Lavender Coach Alex Voice Studio */}
         <AiCompanionSection />
 
-        {/* Act 8: High-Voltage Electric Cobalt Download Finale */}
+        {/* Act 9: High-Voltage Electric Cobalt Download Finale */}
         <DownloadSection />
       </main>
 
-      {/* 9. Official Art-Directed Footer */}
+      {/* 10. Official Art-Directed Footer */}
       <Footer />
     </div>
   );

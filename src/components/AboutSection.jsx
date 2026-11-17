@@ -14,7 +14,7 @@ export const AboutSection = () => {
     <section id="about" className="py-28 md:py-36 relative bg-[#F4F0E8] text-[#171719] overflow-hidden">
       {/* Top Transition Mask into Warm Ivory */}
       <div className="absolute top-0 left-0 right-0 overflow-hidden leading-none pointer-events-none z-20">
-        <svg viewBox="0 0 1200 80" preserveAspectRatio="none" className="relative block w-full h-10 sm:h-16 fill-[#171D36]">
+        <svg viewBox="0 0 1200 80" preserveAspectRatio="none" className="relative block w-full h-10 sm:h-16 fill-[#101322]">
           <path d="M0,0 C300,70 700,10 1200,60 L1200,0 L0,0 Z" />
         </svg>
       </div>
@@ -230,9 +230,9 @@ export const AboutSection = () => {
         </motion.div>
       </div>
 
-      {/* Bottom Transition Drop into Pinned Charcoal Universe */}
+      {/* Bottom Transition Drop into Pinned Choreography Universe */}
       <div className="absolute bottom-0 left-0 right-0 overflow-hidden leading-none pointer-events-none z-20">
-        <svg viewBox="0 0 1200 80" preserveAspectRatio="none" className="relative block w-full h-10 sm:h-16 fill-[#171719]">
+        <svg viewBox="0 0 1200 80" preserveAspectRatio="none" className="relative block w-full h-10 sm:h-16 fill-[#10131E]">
           <path d="M0,80 C400,20 800,75 1200,10 L1200,80 L0,80 Z" />
         </svg>
       </div>
