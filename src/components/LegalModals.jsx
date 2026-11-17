@@ -33,7 +33,7 @@ export const LegalModal = ({ isOpen, onClose, title, type }) => {
             </p>
             <p>
               At <strong>HealthFreak</strong> ("we", "our", or "us"), we prioritize the privacy
-              and integrity of your biometric and wellness data. This Privacy Policy describes how
+              and integrity of your health and wellness data. This Privacy Policy describes how
               the HealthFreak application and website handle information.
             </p>
 
@@ -47,7 +47,7 @@ export const LegalModal = ({ isOpen, onClose, title, type }) => {
               with Coach Alex via secure audio streams (LiveKit). Voice audio is not retained for advertising.
             </p>
             <p>
-              • <strong>Activity & Biometrics:</strong> Motion steps, water intake, weight, and check-in logs
+              • <strong>Activity & Fitness:</strong> Motion steps, water intake, weight, and check-in logs
               are stored securely to generate your daily wellness analytics.
             </p>
 

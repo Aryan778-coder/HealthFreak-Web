@@ -14,7 +14,7 @@ import {
   LineChart,
   RotateCw
 } from "lucide-react";
-import BiometricGyroscope from "@/components/BiometricGyroscope";
+import KineticGimbal from "@/components/KineticGimbal";
 
 const MODULES = [
   {
@@ -79,12 +79,12 @@ const MODULES = [
   },
   {
     id: "gimbal",
-    title: "3D Biometric Synapse Gimbal",
+    title: "3D Kinetic Motion Gimbal",
     category: "Sensory Physics",
-    tagline: "3-Axis Kinetic Telemetry",
+    tagline: "3-Axis Motion Telemetry",
     accent: "#D5F45B", // Acid Lime
     badge: "bg-[#D5F45B]/20 text-[#171719] border-[#D5F45B]/40",
-    description: "Interactive 3D gyroscope engine that computes real-time cardiovascular momentum, neural readiness, and metabolic torque with tactile drag physics.",
+    description: "Interactive 3D gyroscope engine that computes real-time activity momentum, energy pacing, and movement torque with tactile drag physics.",
     icon: RotateCw,
   },
 ];
@@ -497,7 +497,7 @@ export const FeaturesSection = () => {
                     </motion.div>
                   )}
 
-                  {/* Playground 7: 3D Biometric Synapse Gimbal */}
+                  {/* Playground 7: 3D Kinetic Motion Gimbal */}
                   {activeModuleId === "gimbal" && (
                     <motion.div
                       key="module-gimbal"
@@ -507,7 +507,7 @@ export const FeaturesSection = () => {
                       transition={{ duration: 0.3 }}
                       className="flex flex-col items-center justify-center p-2"
                     >
-                      <BiometricGyroscope className="w-full max-w-[420px]" />
+                      <KineticGimbal className="w-full max-w-[420px]" />
                     </motion.div>
                   )}
                 </AnimatePresence>

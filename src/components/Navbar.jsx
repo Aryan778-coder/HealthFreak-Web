@@ -67,7 +67,7 @@ export const Navbar = () => {
                 <span className="w-1.5 h-1.5 rounded-full bg-[#FF6659] ml-1" />
               </div>
               <span className="text-[9px] tracking-widest font-mono font-bold uppercase text-[#B9BAC4] -mt-1 hidden sm:block">
-                Biometric Intelligence
+                AI Wellness
               </span>
             </div>
           </a>

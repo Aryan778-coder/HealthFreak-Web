@@ -189,7 +189,7 @@ export const HeroSection = () => {
             >
               <span className="w-2 h-2 rounded-full bg-[#D5F45B] animate-pulse" />
               <ShinyText
-                text="SURREAL 3D BIOMETRIC INTELLIGENCE"
+                text="NEXT-GEN AI WELLNESS PLATFORM"
                 color="#B9BAC4"
                 shineColor="#FFFFFF"
                 speed={2.2}
@@ -201,7 +201,7 @@ export const HeroSection = () => {
             <div ref={titleLeftRef} className="w-full text-center lg:text-left mb-2">
               <KineticTitle
                 text="HEALTHFREAK"
-                subtitle="NEURAL METABOLIC OS"
+                subtitle="ALL-IN-ONE AI WELLNESS OS"
                 accentColor="#D5F45B"
                 className="my-1"
               />

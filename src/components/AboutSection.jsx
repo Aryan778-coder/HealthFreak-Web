@@ -69,7 +69,7 @@ export const AboutSection = () => {
                 </div>
               </div>
               <h3 className="font-serif text-2xl sm:text-3xl font-bold text-[#171719] mb-4">
-                Unified Biometric Intelligence
+                Unified AI Wellness Intelligence
               </h3>
               <p className="text-base sm:text-lg text-[#171719]/70 max-w-2xl leading-relaxed">
                 Your calories, water, steps, and recovery sleep are not disconnected data silos. When you walk 10,000 steps, HealthFreak automatically adapts your water targets and calculates your remaining macro fuel.
@@ -171,7 +171,7 @@ export const AboutSection = () => {
                 Zero Ads. Zero Surveillance.
               </h3>
               <p className="text-sm sm:text-base text-[#B9BAC4] leading-relaxed">
-                No full-screen video ads. No third-party data broker SDKs. Your biometrics, meals, and voice transcripts remain 100% private and protected.
+                No full-screen video ads. No third-party data broker SDKs. Your wellness logs, meals, and voice transcripts remain 100% private and protected.
               </p>
             </div>
           </motion.div>

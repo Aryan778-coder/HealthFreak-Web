@@ -8,7 +8,7 @@ export const siteConfig = {
   shortName: "HealthFreak",
   tagline: "Your Health. Your AI. Your Lifestyle.",
   description:
-    "HealthFreak is the all-in-one AI wellness companion uniting nutrition and macro tracking, smart hydration, biometric workout logging, and real-time voice coaching into a single, cohesive daily ritual.",
+    "HealthFreak is the all-in-one AI wellness companion uniting nutrition and macro tracking, smart hydration, fitness and activity logging, and real-time voice coaching into a single, cohesive daily ritual.",
   url: "https://healthfreak.app",
   ogImage: "/assets/logo/HealthFreakLogoBlackbg.png",
   logo: "/assets/logo/HealthFreakLogoTransparent.png",
@@ -35,7 +35,7 @@ export const siteConfig = {
     { value: "All-in-One", label: "Unified Health Stack" },
     { value: "< 1 Sec", label: "AI Meal Recognition" },
     { value: "24 / 7", label: "Live Voice Coach Alex" },
-    { value: "100% Private", label: "Encrypted Biometrics" },
+    { value: "100% Private", label: "Encrypted Wellness Data" },
   ],
 
   features: [
@@ -89,7 +89,7 @@ export const siteConfig = {
       description:
         "Visualize your daily step momentum with our signature dot-matrix spline chart. Track active burn, training minutes, and scheduled fitness routines.",
       category: "Activity",
-      badge: "Biometrics",
+      badge: "Motion Tracking",
       color: "amber",
       metrics: [
         { label: "Steps Today", value: "10,482" },

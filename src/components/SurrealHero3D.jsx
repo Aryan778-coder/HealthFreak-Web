@@ -157,7 +157,7 @@ export default function SurrealHero3D({ scrollProgress = 0, onCoreClick }) {
     }
     scene.add(crystalGroup);
 
-    // 7. Glowing Particle Field (Biometric Stars)
+    // 7. Glowing Particle Field (Ambient Stars)
     const particleCount = 450;
     const particleGeo = new THREE.BufferGeometry();
     const posArray = new Float32Array(particleCount * 3);

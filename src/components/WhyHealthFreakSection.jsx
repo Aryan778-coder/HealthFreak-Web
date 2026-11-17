@@ -36,7 +36,7 @@ export const WhyHealthFreakSection = () => {
           </h2>
 
           <p className="text-base sm:text-lg text-[#171719]/70 leading-relaxed">
-            Compare HealthFreak’s unified biometric architecture against the disjointed, ad-saturated tools most people struggle with every day.
+            Compare HealthFreak’s unified AI wellness architecture against the disjointed, ad-saturated tools most people struggle with every day.
           </p>
         </div>
 
@@ -119,7 +119,7 @@ export const WhyHealthFreakSection = () => {
               Obsidian Privacy
             </h4>
             <p className="text-sm text-[#171719]/70 leading-relaxed">
-              No tracking pixels or advertising broker SDKs. Your biometrics and voice calls are protected with on-device encryption.
+              No tracking pixels or advertising broker SDKs. Your wellness data and voice calls are protected with on-device encryption.
             </p>
           </div>
         </div>

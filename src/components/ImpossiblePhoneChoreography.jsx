@@ -485,7 +485,7 @@ export default function ImpossiblePhoneChoreography() {
               <div className="flex-1 mt-3 rounded-2xl overflow-hidden relative flex flex-col gap-3">
                 <div className="p-4 rounded-2xl bg-gradient-to-br from-[#1C2541] to-[#0B101E] border border-white/10">
                   <div className="text-xs font-mono text-zinc-400 mb-1 flex items-center justify-between">
-                    <span>DAILY BIOMETRICS</span>
+                    <span>DAILY ACTIVITY</span>
                     <span className="text-[#D5F45B]">OPTIMAL</span>
                   </div>
                   <div className="text-2xl font-black text-white tracking-tight flex items-baseline gap-2">
@@ -525,7 +525,7 @@ export default function ImpossiblePhoneChoreography() {
             }}
           />
 
-          {/* Layer 5: Floating Holographic Biometric HUD Widgets */}
+          {/* Layer 5: Floating Holographic Activity HUD Widgets */}
           <div
             ref={hudLayerRef}
             className="absolute inset-0 pointer-events-none flex flex-col justify-between p-2"
@@ -534,15 +534,15 @@ export default function ImpossiblePhoneChoreography() {
             {/* Top Hovering Badge */}
             <div className="self-end -mr-6 -mt-3 px-3 py-1.5 rounded-xl bg-black/80 border border-[#D5F45B]/60 backdrop-blur-md shadow-2xl text-[11px] font-mono text-[#D5F45B] flex items-center gap-2">
               <Sparkles className="w-3.5 h-3.5" />
-              <span>LIVE BIOMETRIC SYNAPSE</span>
+              <span>LIVE AI WELLNESS SYNAPSE</span>
             </div>
 
             {/* Bottom Hovering Metric Card */}
             <div className="self-start -ml-6 -mb-4 px-4 py-2.5 rounded-xl bg-black/85 border border-[#315BFF]/70 backdrop-blur-md shadow-2xl text-left">
-              <div className="text-[10px] font-mono text-zinc-400">VO2 MAX ESTIMATE</div>
+              <div className="text-[10px] font-mono text-zinc-400">DAILY ACTIVE BURN</div>
               <div className="text-sm font-bold text-white font-mono flex items-center gap-2">
-                54.2 mL/kg/min
-                <span className="text-[10px] text-[#D5F45B]">SUPERIOR</span>
+                624 kcal
+                <span className="text-[10px] text-[#D5F45B]">OPTIMAL</span>
               </div>
             </div>
           </div>

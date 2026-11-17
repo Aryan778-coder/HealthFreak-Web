@@ -241,11 +241,11 @@ export const ScreenshotsSection = () => {
       id: "login",
       name: "Modern Welcome",
       icon: LogIn,
-      tagline: "Uncluttered Biometric Entrance",
+      tagline: "Uncluttered Modern Welcome",
       accentGlow: "rgba(49, 91, 255, 0.3)",
       accentPill: "text-[#315BFF] bg-[#315BFF]/15 border-[#315BFF]/30",
       description:
-        "Seamless entrance into your daily wellness world with biometric authentication, privacy guarantees, and goal setup.",
+        "Seamless entrance into your daily wellness world with private authentication, privacy guarantees, and goal setup.",
       content: (
         <div className="p-4 space-y-4 text-center text-white flex flex-col items-center justify-center">
           <div className="w-16 h-16 rounded-2xl bg-gradient-to-br from-[#1E2338] to-[#121626] border border-[#315BFF]/40 flex items-center justify-center p-2 shadow-xl">

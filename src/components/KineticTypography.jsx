@@ -3,7 +3,7 @@ import { motion, useSpring, useMotionValue } from "framer-motion";
 
 export const KineticTitle = ({
   text = "HEALTHFREAK",
-  subtitle = "BIOMETRIC ARTIFICIAL INTELLIGENCE",
+  subtitle = "ALL-IN-ONE AI WELLNESS OS",
   accentColor = "#D5F45B",
   className = "",
 }) => {

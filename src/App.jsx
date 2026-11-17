@@ -35,7 +35,7 @@ export default function App() {
         {/* Act 4: MotionSites Pinned Scroll Deep Dive (Multimodal, Steps, Water, Voice) */}
         <PinnedScrollExperience />
 
-        {/* Act 5: Warm Ivory Interactive Biometric Laboratory */}
+        {/* Act 5: Warm Ivory Interactive AI Wellness Laboratory */}
         <FeaturesSection />
 
         {/* Act 6: Deep Midnight Hardware Screenshot Showcase */}

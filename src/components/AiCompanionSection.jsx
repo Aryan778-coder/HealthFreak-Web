@@ -33,7 +33,7 @@ export const AiCompanionSection = () => {
     {
       user: "My energy feels low this afternoon. Did I drink enough water?",
       alex: "Looking at your water widget, you're at 1,400 mL out of your 3,200 mL goal. Drink a tall 500 mL glass with a pinch of sea salt right now — mild dehydration is likely triggering that afternoon slump.",
-      context: "Real-Time Biometric Sync",
+      context: "Real-Time Activity & Water Sync",
       scenarioTag: "HYDRATION BALANCE",
     },
   ];
@@ -96,7 +96,7 @@ export const AiCompanionSection = () => {
                   <Sparkles className="w-5 h-5" />
                 </div>
                 <div>
-                  <h4 className="font-bold text-sm text-white">Full Biometric Ecosystem Awareness</h4>
+                  <h4 className="font-bold text-sm text-white">Full Wellness Ecosystem Awareness</h4>
                   <p className="text-xs sm:text-sm text-[#B9BAC4]">
                     Coach Alex knows your exact meals, water logs, and workout steps before you even start the sentence.
                   </p>

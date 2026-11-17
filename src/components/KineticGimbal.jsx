@@ -2,7 +2,7 @@ import { useEffect, useRef, useState } from "react";
 import * as THREE from "three";
 import { Activity, Zap, Compass, RotateCw } from "lucide-react";
 
-export default function BiometricGyroscope({ className = "" }) {
+export default function KineticGimbal({ className = "" }) {
   const mountRef = useRef(null);
   const isDraggingRef = useRef(false);
   const prevMouseRef = useRef({ x: 0, y: 0 });
@@ -92,7 +92,7 @@ export default function BiometricGyroscope({ className = "" }) {
     ring3.rotation.y = Math.PI / 4;
     mainGroup.add(ring3);
 
-    // Central Glowing Biometric Core (Holographic Icosahedron)
+    // Central Glowing Energy Core (Holographic Icosahedron)
     const coreGeo = new THREE.IcosahedronGeometry(0.48, 1);
     const coreMat = new THREE.MeshPhysicalMaterial({
       color: 0xffffff,
@@ -214,7 +214,7 @@ export default function BiometricGyroscope({ className = "" }) {
       {/* Header Telemetry */}
       <div className="w-full flex items-center justify-between text-xs font-mono text-zinc-400 z-10 border-b border-white/10 pb-3">
         <span className="flex items-center gap-2 text-[#D5F45B]">
-          <RotateCw className="w-3.5 h-3.5 animate-spin" /> BIOMETRIC GIMBAL
+          <RotateCw className="w-3.5 h-3.5 animate-spin" /> KINETIC GYROSCOPE
         </span>
         <span className="text-white font-bold">{rpm} RPM</span>
       </div>
@@ -235,19 +235,19 @@ export default function BiometricGyroscope({ className = "" }) {
       {/* Live Telemetry Readout */}
       <div className="w-full grid grid-cols-3 gap-2 text-center z-10 pt-3 border-t border-white/10 text-xs font-mono">
         <div className="p-2 rounded-xl bg-white/[0.03] border border-white/5">
-          <div className="text-[10px] text-zinc-500">HEART RATE</div>
+          <div className="text-[10px] text-zinc-500">ENERGY PACE</div>
           <div className="font-bold text-[#FF6659] flex items-center justify-center gap-1 mt-0.5">
-            <Activity className="w-3 h-3 animate-pulse" /> 68 BPM
+            <Activity className="w-3 h-3 animate-pulse" /> OPTIMAL
           </div>
         </div>
         <div className="p-2 rounded-xl bg-white/[0.03] border border-white/5">
-          <div className="text-[10px] text-zinc-500">SYNAPSE</div>
+          <div className="text-[10px] text-zinc-500">MOTION</div>
           <div className="font-bold text-[#D5F45B] mt-0.5">{telemetryState.split(" ")[0]}</div>
         </div>
         <div className="p-2 rounded-xl bg-white/[0.03] border border-white/5">
-          <div className="text-[10px] text-zinc-500">READINESS</div>
+          <div className="text-[10px] text-zinc-500">ACTIVITY</div>
           <div className="font-bold text-[#315BFF] flex items-center justify-center gap-1 mt-0.5">
-            <Zap className="w-3 h-3" /> 94/100
+            <Zap className="w-3 h-3" /> 94% GOAL
           </div>
         </div>
       </div>
