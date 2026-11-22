@@ -14,7 +14,7 @@ export const AboutSection = () => {
     <section id="about" className="py-28 md:py-36 relative bg-[#F4F0E8] text-[#171719] overflow-hidden">
       {/* Top Transition Mask into Warm Ivory */}
       <div className="absolute top-0 left-0 right-0 overflow-hidden leading-none pointer-events-none z-20">
-        <svg viewBox="0 0 1200 80" preserveAspectRatio="none" className="relative block w-full h-10 sm:h-16 fill-[#101322]">
+        <svg viewBox="0 0 1200 80" preserveAspectRatio="none" className="relative block w-full h-10 sm:h-16 fill-[#0A0D16]">
           <path d="M0,0 C300,70 700,10 1200,60 L1200,0 L0,0 Z" />
         </svg>
       </div>

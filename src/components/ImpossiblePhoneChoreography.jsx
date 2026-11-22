@@ -271,11 +271,11 @@ export default function ImpossiblePhoneChoreography() {
       className="relative w-full h-screen bg-[#10131E] text-white overflow-hidden flex flex-col items-center justify-center select-none"
       style={{ perspective: "1500px" }}
     >
-      {/* Background Ambient Radiance & SVG Grid */}
+      {/* Background Ambient Radiance & Subtle Refined Glow */}
       <div className="absolute inset-0 pointer-events-none">
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[700px] bg-gradient-to-tr from-[#315BFF]/25 via-[#D5F45B]/15 to-[#FF6659]/20 rounded-full blur-[140px]" />
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[700px] bg-gradient-to-tr from-[#315BFF]/18 via-[#7C3AED]/12 to-[#1E3A8A]/15 rounded-full blur-[160px]" />
         <div
-          className="absolute inset-0 opacity-[0.06]"
+          className="absolute inset-0 opacity-[0.04]"
           style={{
             backgroundImage: `radial-gradient(circle at 1px 1px, #ffffff 1px, transparent 0)`,
             backgroundSize: "36px 36px",

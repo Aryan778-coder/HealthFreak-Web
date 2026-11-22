@@ -44,12 +44,12 @@ export const AiCompanionSection = () => {
       <div className="absolute inset-0 -z-10 pointer-events-none opacity-40">
         <Particles
           particleColors={["#B9A8FF", "#315BFF"]}
-          particleCount={50}
-          particleSpread={8}
-          speed={0.12}
-          particleBaseSize={70}
+          particleCount={24}
+          particleSpread={6}
+          speed={0.06}
+          particleBaseSize={30}
           moveParticlesOnHover={false}
-          alphaParticles={false}
+          alphaParticles={true}
           disableRotation={false}
         />
       </div>

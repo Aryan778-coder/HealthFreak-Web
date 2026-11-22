@@ -21,7 +21,7 @@ export default function App() {
       <Navbar />
 
       <main className="flex-1 w-full flex flex-col">
-        {/* Act 1: Surreal 3D Hero + Kinetic Typography + ShaderCanvas */}
+        {/* Act 1: Refined Cinematic Navy Hero with Ambient Light Atmosphere */}
         <HeroSection />
 
         {/* Act 2: Warm Ivory Editorial Manifesto */}

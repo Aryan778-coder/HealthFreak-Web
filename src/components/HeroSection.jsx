@@ -2,9 +2,8 @@ import { useRef, useState } from "react";
 import { siteConfig } from "@/config/site";
 import Magnet from "@/components/Magnet";
 import ShinyText from "@/components/ShinyText";
-import SurrealHero3D from "@/components/SurrealHero3D";
+import RefinedBackgroundAtmosphere from "@/components/RefinedBackgroundAtmosphere";
 import KineticTitle from "@/components/KineticTypography";
-import ShaderCanvas from "@/components/ShaderCanvas";
 import { gsap, ScrollTrigger, useGSAP } from "@/utils/gsapSetup";
 import {
   Droplets,
@@ -29,7 +28,6 @@ export const HeroSection = () => {
   const satellite2Ref = useRef(null);
 
   const [mousePos, setMousePos] = useState({ x: 0, y: 0 });
-  const [scrollProgress, setScrollProgress] = useState(0);
 
   // Mouse Parallax for the 3D phone
   const handleMouseMove = (e) => {
@@ -57,9 +55,6 @@ export const HeroSection = () => {
           pin: true,
           anticipatePin: 1,
           invalidateOnRefresh: true,
-          onUpdate: (self) => {
-            setScrollProgress(self.progress);
-          },
         },
       });
 
@@ -151,31 +146,19 @@ export const HeroSection = () => {
       ref={heroRef}
       onMouseMove={handleMouseMove}
       onMouseLeave={handleMouseLeave}
-      className="relative min-h-screen w-full flex flex-col justify-center items-center overflow-hidden bg-[#101322] text-white select-none"
+      className="relative min-h-screen w-full flex flex-col justify-center items-center overflow-hidden bg-[#0A0D16] text-white select-none"
     >
-      {/* 1. Surreal 3D WebGL Canvas Layer */}
-      <SurrealHero3D scrollProgress={scrollProgress} />
+      {/* 1. Refined Background Atmosphere (Navy & Charcoal with Soft Blue/Purple Glows & Subtle Light Trails) */}
+      <RefinedBackgroundAtmosphere intensity={0.85} />
 
-      {/* 2. WebGL Liquid Chromatic Aberration Shader Canvas */}
-      <ShaderCanvas intensity={0.65} interactive={true} />
-
-      {/* 3. Kinetic Ambient Lighting */}
+      {/* 2. Soft Ambient Vignette */}
       <div className="absolute inset-0 pointer-events-none -z-10 overflow-hidden">
-        {/* Cobalt Light Burst */}
-        <div className="absolute -top-32 left-1/4 w-[800px] h-[800px] bg-[#315BFF]/20 rounded-full blur-[200px]" />
-        {/* Coral Ambient Flare */}
-        <div className="absolute top-1/2 -right-20 w-[600px] h-[600px] bg-[#FF6659]/15 rounded-full blur-[180px]" />
-        {/* Lavender Depth */}
-        <div className="absolute -bottom-28 left-1/3 w-[700px] h-[600px] bg-[#B9A8FF]/15 rounded-full blur-[200px]" />
-
-        {/* Film Grain Texture Overlay */}
-        <div
-          className="absolute inset-0 opacity-[0.05] pointer-events-none mix-blend-overlay"
-          style={{
-            backgroundImage: "url('/assets/glass_grain_texture.png')",
-            backgroundRepeat: "repeat",
-          }}
-        />
+        {/* Soft Cobalt Radial Burst */}
+        <div className="absolute -top-32 left-1/4 w-[750px] h-[750px] bg-[#315BFF]/15 rounded-full blur-[200px]" />
+        {/* Soft Violet/Lavender Ambient Depth */}
+        <div className="absolute top-1/2 -right-20 w-[600px] h-[600px] bg-[#7C3AED]/12 rounded-full blur-[190px]" />
+        {/* Subtle Bottom Grounding */}
+        <div className="absolute -bottom-28 left-1/3 w-[700px] h-[600px] bg-[#1E293B]/20 rounded-full blur-[200px]" />
       </div>
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 w-full pt-16 pb-8 pointer-events-none">
