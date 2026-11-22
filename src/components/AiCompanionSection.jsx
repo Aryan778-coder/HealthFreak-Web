@@ -138,11 +138,11 @@ export const AiCompanionSection = () => {
               <div className="flex items-center justify-between pb-6 border-b border-[#2F3A66]">
                 <div className="flex items-center gap-3.5">
                   <div className="relative">
-                    <div className="w-14 h-14 rounded-2xl overflow-hidden border-2 border-[#B9A8FF] shadow-[0_0_20px_rgba(185,168,255,0.35)]">
+                    <div className="w-14 h-14 rounded-2xl overflow-hidden bg-[#14192D] border-2 border-[#B9A8FF] shadow-[0_0_20px_rgba(185,168,255,0.35)] flex items-center justify-center p-1">
                       <img
-                        src="/assets/coach_alex.png"
-                        alt="Coach Alex Profile"
-                        className="w-full h-full object-cover"
+                        src="/assets/callingLogo.png"
+                        alt="Coach Alex Official Mascot"
+                        className="w-full h-full object-contain"
                       />
                     </div>
                     <span className="absolute -bottom-1 -right-1 w-4 h-4 rounded-full bg-emerald-400 border-2 border-[#1E2338] animate-pulse" />

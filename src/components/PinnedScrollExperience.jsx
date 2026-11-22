@@ -3,7 +3,6 @@ import { gsap, ScrollTrigger, useGSAP } from "@/utils/gsapSetup";
 import {
   Sparkles,
   CheckCircle2,
-  Scan,
   Compass,
   Volume2
 } from "lucide-react";
@@ -332,135 +331,40 @@ export const PinnedScrollExperience = () => {
 
               {/* Screens Stage with Crossfade via GSAP */}
               <div className="relative w-full min-h-[380px] flex items-center justify-center">
-                {/* Screen 1: Food Scanner View */}
-                <div ref={screen1Ref} className="w-full space-y-3.5 top-0 left-0">
-                  <div className="relative rounded-2xl overflow-hidden bg-[#151518] border border-[#315BFF]/40 h-44 flex items-center justify-center">
-                    <img
-                      src="/assets/healthy_bowl_clean.png"
-                      alt="Meal Scanner Preview"
-                      className="w-full h-full object-cover"
-                    />
-                    <div className="absolute inset-0 bg-gradient-to-b from-transparent via-[#315BFF]/50 to-transparent h-5 animate-scanline pointer-events-none" />
-                    <div className="absolute inset-2 border-2 border-dashed border-[#315BFF]/70 rounded-xl" />
-                    <span className="absolute bottom-2 left-2 px-2.5 py-0.5 rounded-md bg-black/85 text-[10px] font-mono text-[#315BFF] font-bold flex items-center gap-1">
-                      <Scan className="w-3 h-3 text-[#315BFF]" /> SCANNING • 98.4% ACCURACY
-                    </span>
-                  </div>
-
-                  <div className="p-3 rounded-xl bg-[#17171C] border border-[#2B2B36] space-y-2">
-                    <div className="flex justify-between items-center">
-                      <span className="text-xs font-bold text-white">Grilled Chicken Bowl</span>
-                      <span className="text-xs font-mono font-bold text-[#315BFF]">520 kcal</span>
-                    </div>
-                    <div className="grid grid-cols-3 gap-1.5 text-center text-[10px]">
-                      <div className="p-1 rounded bg-[#101013] text-emerald-400 font-bold">42g Prot</div>
-                      <div className="p-1 rounded bg-[#101013] text-cyan-400 font-bold">48g Carb</div>
-                      <div className="p-1 rounded bg-[#101013] text-rose-400 font-bold">14g Fat</div>
-                    </div>
-                  </div>
+                {/* Screen 1: Food & Nutrition Dashboard View */}
+                <div ref={screen1Ref} className="w-full h-[370px] rounded-2xl overflow-hidden bg-[#0C0F17] border border-[#315BFF]/30 shadow-xl">
+                  <img
+                    src="/assets/screenshots/app_home_dashboard.jpg"
+                    alt="HealthFreak Nutrition & Macros Dashboard"
+                    className="w-full h-full object-cover object-top"
+                  />
                 </div>
 
-                {/* Screen 2: Fitness Spline View */}
-                <div ref={screen2Ref} className="w-full space-y-3.5 top-0 left-0">
-                  <div className="p-3.5 rounded-2xl bg-[#17171C] border border-[#2B2B36] space-y-2.5">
-                    <div className="flex justify-between items-center">
-                      <span className="text-xs font-bold text-white flex items-center gap-1.5">
-                        <Compass className="w-3.5 h-3.5 text-[#D5F45B]" /> Motion Sensor Spline
-                      </span>
-                      <span className="text-[10px] font-bold px-2 py-0.5 rounded-full bg-[#D5F45B]/20 text-[#D5F45B]">
-                        LIVE
-                      </span>
-                    </div>
-                    <div className="text-2xl font-bold font-serif text-white">
-                      10,482 <span className="text-xs text-[#B9BAC4] font-normal">steps</span>
-                    </div>
-                    <div className="flex items-end justify-between gap-1.5 h-20 pt-2">
-                      {[35, 50, 70, 95, 65, 100, 80].map((h, i) => (
-                        <div key={i} className="flex-1 flex flex-col items-center gap-1 h-full justify-end">
-                          <div
-                            className={`w-full rounded-full ${
-                              i === 5
-                                ? "bg-[#D5F45B] shadow-[0_0_12px_rgba(213,244,91,0.6)]"
-                                : "bg-[#272732]"
-                            }`}
-                            style={{ height: `${h}%` }}
-                          />
-                          <span className="text-[8px] text-neutral-500 font-mono">
-                            {["M", "T", "W", "T", "F", "S", "S"][i]}
-                          </span>
-                        </div>
-                      ))}
-                    </div>
-                  </div>
-
-                  <div className="grid grid-cols-2 gap-2 text-xs">
-                    <div className="p-2.5 rounded-xl bg-[#17171C] border border-[#2B2B36]">
-                      <span className="text-[10px] text-neutral-400 block font-mono">Active Burn</span>
-                      <strong className="text-sm font-bold text-[#D5F45B]">624 kcal</strong>
-                    </div>
-                    <div className="p-2.5 rounded-xl bg-[#17171C] border border-[#2B2B36]">
-                      <span className="text-[10px] text-neutral-400 block font-mono">Training Time</span>
-                      <strong className="text-sm font-bold text-white">48 mins</strong>
-                    </div>
-                  </div>
+                {/* Screen 2: Progress & Activity Insights View */}
+                <div ref={screen2Ref} className="w-full h-[370px] rounded-2xl overflow-hidden bg-[#0C0F17] border border-[#D5F45B]/30 shadow-xl">
+                  <img
+                    src="/assets/screenshots/app_progress_insights.jpg"
+                    alt="HealthFreak Progress & Activity Volume"
+                    className="w-full h-full object-cover object-top"
+                  />
                 </div>
 
-                {/* Screen 3: Hydration View */}
-                <div ref={screen3Ref} className="w-full space-y-4 text-center top-0 left-0">
-                  <div className="relative w-28 h-36 mx-auto rounded-3xl overflow-hidden bg-gradient-to-b from-[#1C1820] to-[#121016] border border-[#FF6659]/40 flex items-center justify-center p-3 shadow-xl">
-                    <img
-                      src="/assets/water_widget_preview.png"
-                      alt="Water Widget"
-                      className="w-full h-full object-contain filter drop-shadow-[0_0_15px_rgba(255,102,89,0.4)]"
-                    />
-                  </div>
-                  <div>
-                    <div className="text-xl font-bold font-serif text-white">2,450 mL</div>
-                    <span className="text-xs text-[#FF6659] font-bold">76% of 3,200 mL Target</span>
-                  </div>
-                  <div className="flex justify-center gap-2">
-                    <span className="px-3 py-1 rounded-xl bg-[#FF6659]/15 border border-[#FF6659]/30 text-xs font-bold text-[#FF6659]">
-                      +250 mL
-                    </span>
-                    <span className="px-3 py-1 rounded-xl bg-[#FF6659]/15 border border-[#FF6659]/30 text-xs font-bold text-[#FF6659]">
-                      +500 mL
-                    </span>
-                  </div>
+                {/* Screen 3: Smart Hydration & Sleep View */}
+                <div ref={screen3Ref} className="w-full h-[370px] rounded-2xl overflow-hidden bg-[#0C0F17] border border-[#FF6659]/30 shadow-xl">
+                  <img
+                    src="/assets/screenshots/app_hydration_sleep.jpg"
+                    alt="HealthFreak Smart Hydration & Sleep"
+                    className="w-full h-full object-cover object-top"
+                  />
                 </div>
 
-                {/* Screen 4: LiveKit Voice Coach View */}
-                <div ref={screen4Ref} className="w-full space-y-3.5 text-center flex flex-col items-center top-0 left-0">
-                  <div className="relative w-20 h-20 rounded-2xl overflow-hidden border-2 border-[#B9A8FF] shadow-[0_0_25px_rgba(185,168,255,0.4)]">
-                    <img
-                      src="/assets/coach_alex.png"
-                      alt="Coach Alex Profile"
-                      className="w-full h-full object-cover"
-                    />
-                    <span className="absolute bottom-1 right-1 w-3.5 h-3.5 rounded-full bg-emerald-400 border-2 border-black" />
-                  </div>
-
-                  <div>
-                    <h4 className="font-serif text-base font-bold text-white flex items-center justify-center gap-1.5">
-                      Coach Alex
-                      <span className="text-[10px] px-2 py-0.5 rounded-full bg-[#B9A8FF]/20 text-[#B9A8FF] font-bold flex items-center gap-1">
-                        <Volume2 className="w-3 h-3" /> LiveKit 240ms
-                      </span>
-                    </h4>
-                    <p className="text-xs text-[#B9BAC4] italic max-w-xs mt-1">
-                      "You crushed your steps today! Drink 500mL water before bed."
-                    </p>
-                  </div>
-
-                  {/* Soundwave Bars */}
-                  <div className="flex items-center gap-1 h-6">
-                    {[10, 18, 26, 14, 30, 20, 12, 24, 16, 22, 10].map((h, i) => (
-                      <div
-                        key={i}
-                        className="w-1 bg-[#B9A8FF] rounded-full animate-wave-bar"
-                        style={{ height: `${h}px`, animationDelay: `${i * 0.1}s` }}
-                      />
-                    ))}
-                  </div>
+                {/* Screen 4: LiveKit Voice Coach Active Call View */}
+                <div ref={screen4Ref} className="w-full h-[370px] rounded-2xl overflow-hidden bg-[#0C0F17] border border-[#B9A8FF]/30 shadow-xl">
+                  <img
+                    src="/assets/screenshots/app_voice_active_call.jpg"
+                    alt="HealthFreak AI Coach Voice Call"
+                    className="w-full h-full object-cover object-top"
+                  />
                 </div>
               </div>
             </div>

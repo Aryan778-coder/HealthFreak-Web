@@ -13,7 +13,6 @@ import {
   PhoneCall,
   CheckCircle2,
   Compass,
-  Sparkles,
 } from "lucide-react";
 
 export const HeroSection = () => {
@@ -291,51 +290,12 @@ export const HeroSection = () => {
                   </div>
 
                   {/* Real Application UI Screenshot */}
-                  <div className="relative w-full h-full flex flex-col">
+                  <div className="relative w-full h-full flex flex-col bg-[#0C0F17]">
                     <img
-                      src="/assets/healthy_bowl_clean.png"
-                      alt="HealthFreak Vision Screen"
-                      className="w-full h-full object-cover"
+                      src="/assets/screenshots/app_home_dashboard.jpg"
+                      alt="HealthFreak Home Dashboard"
+                      className="w-full h-full object-cover object-top"
                     />
-
-                    {/* Laser Scanner Reticle Overlay */}
-                    <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-black/30 pointer-events-none" />
-
-                    <div className="absolute top-16 left-4 right-4 flex justify-between items-center z-20">
-                      <div className="px-3 py-1 rounded-full bg-black/60 backdrop-blur-md border border-white/20 text-[10px] font-mono text-white flex items-center gap-1.5">
-                        <Sparkles className="w-3 h-3 text-[#D5F45B]" />
-                        <span>AI RECOGNITION</span>
-                      </div>
-                      <span className="text-[10px] font-mono text-[#D5F45B] font-bold">
-                        99.4% CONFIDENCE
-                      </span>
-                    </div>
-
-                    {/* Real-time Nutrition Telemetry Card */}
-                    <div className="absolute bottom-6 left-4 right-4 p-4 rounded-2xl bg-black/70 backdrop-blur-xl border border-white/20 shadow-2xl z-20">
-                      <div className="flex items-center justify-between mb-2">
-                        <span className="text-xs font-bold text-white tracking-wide">
-                          Avocado Quinoa Bowl
-                        </span>
-                        <span className="text-xs font-mono font-bold text-[#D5F45B]">
-                          540 kcal
-                        </span>
-                      </div>
-                      <div className="grid grid-cols-3 gap-2 text-[10px] font-mono text-zinc-300 pt-2 border-t border-white/10">
-                        <div>
-                          <div className="text-zinc-500">PRO</div>
-                          <div className="font-bold text-white">38g</div>
-                        </div>
-                        <div>
-                          <div className="text-zinc-500">CARB</div>
-                          <div className="font-bold text-white">44g</div>
-                        </div>
-                        <div>
-                          <div className="text-zinc-500">FAT</div>
-                          <div className="font-bold text-white">18g</div>
-                        </div>
-                      </div>
-                    </div>
                   </div>
 
                   {/* Specular Glare Layer */}

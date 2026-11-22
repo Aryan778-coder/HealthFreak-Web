@@ -2,9 +2,6 @@ import { useRef, useState } from "react";
 import { gsap, useGSAP } from "@/utils/gsapSetup";
 import {
   Activity,
-  Droplets,
-  Scan,
-  Mic,
   Sparkles,
   ShieldCheck,
   Layers,
@@ -306,7 +303,7 @@ export default function ImpossiblePhoneChoreography() {
         }}
       >
         {/* ============================================================== */}
-        {/* SATELLITE LEFT DEVICE (Nutrition Scanner) */}
+        {/* SATELLITE LEFT DEVICE (Daily Schedule & Plan) */}
         {/* ============================================================== */}
         <div
           ref={leftDeviceRef}
@@ -317,41 +314,22 @@ export default function ImpossiblePhoneChoreography() {
           }}
         >
           <PhoneFrame
-            title="VISION ENGINE"
+            title="DAILY SCHEDULE"
             accent="#315BFF"
-            badge="MULTIMODAL AI"
+            badge="METABOLIC PLAN"
           >
-            <div className="relative w-full h-full bg-[#131622] flex flex-col p-4 text-left">
-              <div className="flex items-center justify-between mb-3 text-xs font-mono text-zinc-400 border-b border-white/10 pb-2">
-                <span className="flex items-center gap-1.5 text-[#315BFF]">
-                  <Scan className="w-3.5 h-3.5" /> VISION ACTIVE
-                </span>
-                <span>99.2% ACCURACY</span>
-              </div>
-              <div className="relative flex-1 rounded-2xl overflow-hidden border border-white/10">
-                <img
-                  src="/assets/healthy_bowl_clean.png"
-                  alt="Vision Nutrition"
-                  className="w-full h-full object-cover"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-black/20" />
-                <div className="absolute bottom-3 left-3 right-3 p-3 rounded-xl bg-black/60 backdrop-blur-md border border-white/15">
-                  <div className="text-xs font-semibold text-white">
-                    Mediterranean Quinoa Bowl
-                  </div>
-                  <div className="flex justify-between text-[11px] font-mono text-zinc-300 mt-1">
-                    <span className="text-[#D5F45B]">540 kcal</span>
-                    <span className="text-[#315BFF]">38g Protein</span>
-                    <span className="text-[#FF6659]">18g Fat</span>
-                  </div>
-                </div>
-              </div>
+            <div className="relative w-full h-full bg-[#0C0F17] flex flex-col overflow-hidden">
+              <img
+                src="/assets/screenshots/app_daily_plan.jpg"
+                alt="HealthFreak Daily Plan & Schedule"
+                className="w-full h-full object-cover object-top"
+              />
             </div>
           </PhoneFrame>
         </div>
 
         {/* ============================================================== */}
-        {/* SATELLITE RIGHT DEVICE (Coach Alex AI Audio) */}
+        {/* SATELLITE RIGHT DEVICE (Coach Alex AI Audio Call) */}
         {/* ============================================================== */}
         <div
           ref={rightDeviceRef}
@@ -364,43 +342,14 @@ export default function ImpossiblePhoneChoreography() {
           <PhoneFrame
             title="COACH ALEX"
             accent="#FF6659"
-            badge="LIVEKIT <240ms"
+            badge="LIVE VOICE CALL"
           >
-            <div className="relative w-full h-full bg-[#181524] flex flex-col p-4 text-left">
-              <div className="flex items-center justify-between mb-3 text-xs font-mono text-zinc-400 border-b border-white/10 pb-2">
-                <span className="flex items-center gap-1.5 text-[#FF6659]">
-                  <Mic className="w-3.5 h-3.5 animate-pulse" /> STREAM ACTIVE
-                </span>
-                <span>VOICE LATENCY 210ms</span>
-              </div>
-              <div className="relative flex-1 rounded-2xl overflow-hidden border border-white/10 bg-gradient-to-b from-[#251B38] to-[#120E1E] flex flex-col items-center justify-center p-6">
-                <div className="relative w-28 h-28 rounded-full overflow-hidden border-2 border-[#FF6659]/60 shadow-[0_0_35px_rgba(255,102,89,0.35)] mb-4">
-                  <img
-                    src="/assets/coach_alex.png"
-                    alt="Coach Alex"
-                    className="w-full h-full object-cover"
-                  />
-                </div>
-                <div className="text-sm font-bold text-white tracking-wide">
-                  Coach Alex
-                </div>
-                <div className="text-xs font-mono text-[#D5F45B] mt-0.5">
-                  &ldquo;Increase tempo on the 3rd set.&rdquo;
-                </div>
-                {/* Simulated Audio Bars */}
-                <div className="flex items-center gap-1 mt-5 h-8">
-                  {[40, 75, 90, 50, 85, 100, 60, 45, 90, 70, 35].map((h, i) => (
-                    <div
-                      key={i}
-                      className="w-1 bg-[#FF6659] rounded-full animate-pulse"
-                      style={{
-                        height: `${h}%`,
-                        animationDelay: `${i * 0.08}s`,
-                      }}
-                    />
-                  ))}
-                </div>
-              </div>
+            <div className="relative w-full h-full bg-[#0C0F17] flex flex-col overflow-hidden">
+              <img
+                src="/assets/screenshots/app_voice_active_call.jpg"
+                alt="HealthFreak In-App Voice Call"
+                className="w-full h-full object-cover object-top"
+              />
             </div>
           </PhoneFrame>
         </div>
@@ -481,35 +430,13 @@ export default function ImpossiblePhoneChoreography() {
                 </span>
               </div>
 
-              {/* Real App Screenshot & Dynamic Content */}
-              <div className="flex-1 mt-3 rounded-2xl overflow-hidden relative flex flex-col gap-3">
-                <div className="p-4 rounded-2xl bg-gradient-to-br from-[#1C2541] to-[#0B101E] border border-white/10">
-                  <div className="text-xs font-mono text-zinc-400 mb-1 flex items-center justify-between">
-                    <span>DAILY ACTIVITY</span>
-                    <span className="text-[#D5F45B]">OPTIMAL</span>
-                  </div>
-                  <div className="text-2xl font-black text-white tracking-tight flex items-baseline gap-2">
-                    10,482 <span className="text-xs font-mono text-zinc-400">STEPS</span>
-                  </div>
-                  <div className="w-full bg-white/10 rounded-full h-2 mt-2 overflow-hidden">
-                    <div className="bg-gradient-to-r from-[#315BFF] to-[#D5F45B] h-full w-[84%]" />
-                  </div>
-                </div>
-
-                {/* Liquid Glass Hydration Preview */}
-                <div className="flex-1 rounded-2xl overflow-hidden border border-white/10 relative">
-                  <img
-                    src="/assets/water_widget_preview.png"
-                    alt="Hydration Widget"
-                    className="w-full h-full object-cover"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent flex items-end p-4">
-                    <div className="text-xs font-mono text-white flex items-center gap-2">
-                      <Droplets className="w-4 h-4 text-[#315BFF]" />
-                      <span>HYDRATION FLUID LEVEL: 2,750 mL</span>
-                    </div>
-                  </div>
-                </div>
+              {/* Real App Screenshot: Smart Hydration & Sleep */}
+              <div className="flex-1 mt-2 rounded-2xl overflow-hidden relative bg-[#0C0F17]">
+                <img
+                  src="/assets/screenshots/app_hydration_sleep.jpg"
+                  alt="HealthFreak Smart Hydration & Sleep"
+                  className="w-full h-full object-cover object-top"
+                />
               </div>
             </div>
           </div>

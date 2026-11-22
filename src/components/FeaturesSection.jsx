@@ -279,9 +279,9 @@ export const FeaturesSection = () => {
                       <div className="p-4 rounded-3xl bg-[#202026] border border-white/10 flex flex-col sm:flex-row items-center gap-5">
                         <div className="relative w-36 h-36 rounded-2xl overflow-hidden bg-[#17171C] border border-[#FF6659]/50 shrink-0 shadow-lg">
                           <img
-                            src="/assets/healthy_bowl_clean.png"
-                            alt="Scanned Food Bowl"
-                            className="w-full h-full object-cover"
+                            src="/assets/screenshots/app_home_dashboard.jpg"
+                            alt="HealthFreak Nutrition & Food Scanner"
+                            className="w-full h-full object-cover object-center"
                           />
                           {/* Animated Laser Scanline */}
                           <div className="absolute inset-0 bg-gradient-to-b from-transparent via-[#FF6659]/60 to-transparent h-4 animate-scanline pointer-events-none" />
