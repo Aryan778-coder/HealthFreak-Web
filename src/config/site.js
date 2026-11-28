@@ -23,11 +23,8 @@ export const siteConfig = {
   copyrightYear: 2026,
 
   navLinks: [
-    { label: "About", href: "#about" },
     { label: "Features", href: "#features" },
     { label: "Screenshots", href: "#screenshots" },
-    { label: "Why HealthFreak", href: "#why-healthfreak" },
-    { label: "AI Companion", href: "#ai-companion" },
     { label: "Download", href: "#download" },
   ],
 

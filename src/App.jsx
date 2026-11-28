@@ -1,13 +1,8 @@
 import { CustomCursor } from "@/components/CustomCursor";
 import { Navbar } from "@/components/Navbar";
 import { HeroSection } from "@/components/HeroSection";
-import { AboutSection } from "@/components/AboutSection";
-import ImpossiblePhoneChoreography from "@/components/ImpossiblePhoneChoreography";
-import { PinnedScrollExperience } from "@/components/PinnedScrollExperience";
 import { FeaturesSection } from "@/components/FeaturesSection";
 import { ScreenshotsSection } from "@/components/ScreenshotsSection";
-import { WhyHealthFreakSection } from "@/components/WhyHealthFreakSection";
-import { AiCompanionSection } from "@/components/AiCompanionSection";
 import { DownloadSection } from "@/components/DownloadSection";
 import { Footer } from "@/components/Footer";
 
@@ -21,37 +16,20 @@ export default function App() {
       <Navbar />
 
       <main className="flex-1 w-full flex flex-col">
-        {/* Act 1: Refined Cinematic Navy Hero with Ambient Light Atmosphere */}
+        {/* Section 1: Cinematic Navy Hero with Authentic App Mockup & Download CTA */}
         <HeroSection />
 
-        {/* Act 2: Warm Ivory Editorial Manifesto */}
-        <AboutSection />
-
-        {/* Act 3: Impossible Smartphone Choreography (Triad -> Z-Explosion -> Orbit -> Convergence) */}
-        <div id="choreography">
-          <ImpossiblePhoneChoreography />
-        </div>
-
-        {/* Act 4: MotionSites Pinned Scroll Deep Dive (Multimodal, Steps, Water, Voice) */}
-        <PinnedScrollExperience />
-
-        {/* Act 5: Warm Ivory Interactive AI Wellness Laboratory */}
+        {/* Section 2: Interactive Feature Explorer */}
         <FeaturesSection />
 
-        {/* Act 6: Deep Midnight Hardware Screenshot Showcase */}
+        {/* Section 3: Authentic Application Screenshots Showcase */}
         <ScreenshotsSection />
 
-        {/* Act 7: Warm Ivory Anti-Fragmentation Comparison */}
-        <WhyHealthFreakSection />
-
-        {/* Act 8: Deep Charcoal & Lavender Coach Alex Voice Studio */}
-        <AiCompanionSection />
-
-        {/* Act 9: High-Voltage Electric Cobalt Download Finale */}
+        {/* Section 4: High-Voltage Download Call-to-Action */}
         <DownloadSection />
       </main>
 
-      {/* 10. Official Art-Directed Footer */}
+      {/* 5. Official Art-Directed Footer */}
       <Footer />
     </div>
   );

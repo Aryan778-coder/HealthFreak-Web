@@ -4,7 +4,7 @@ import Magnet from "@/components/Magnet";
 import ShinyText from "@/components/ShinyText";
 import RefinedBackgroundAtmosphere from "@/components/RefinedBackgroundAtmosphere";
 import KineticTitle from "@/components/KineticTypography";
-import { gsap, ScrollTrigger, useGSAP } from "@/utils/gsapSetup";
+import { gsap, useGSAP } from "@/utils/gsapSetup";
 import {
   Droplets,
   Activity,
@@ -40,101 +40,20 @@ export const HeroSection = () => {
     setMousePos({ x: 0, y: 0 });
   };
 
-  // GSAP ScrollTrigger Pinned & Scrubbed Timeline
+  // Smooth GSAP Entrance Animation (Natural, unpinned flow)
   useGSAP(
     () => {
       if (!heroRef.current) return;
 
-      const tl = gsap.timeline({
-        scrollTrigger: {
-          trigger: heroRef.current,
-          start: "top top",
-          end: "+=140%",
-          scrub: 1.2,
-          pin: true,
-          anticipatePin: 1,
-          invalidateOnRefresh: true,
-        },
-      });
+      const tl = gsap.timeline({ defaults: { ease: "power3.out" } });
 
-      // 1. Kinetic headline parting & scaling
-      tl.to(
-        titleLeftRef.current,
-        {
-          xPercent: -40,
-          opacity: 0,
-          scale: 1.15,
-          ease: "power2.out",
-        },
-        0
-      );
-
-      tl.to(
-        titleRightRef.current,
-        {
-          xPercent: 40,
-          opacity: 0,
-          scale: 1.15,
-          ease: "power2.out",
-        },
-        0
-      );
-
-      // 2. Subtitle, badges & CTA exit
-      tl.to(
-        [subtitleRef.current, ctaRef.current, badgeRef.current],
-        {
-          y: -40,
-          opacity: 0,
-          stagger: 0.05,
-          ease: "power2.out",
-        },
-        0
-      );
-
-      // 3. Floating satellite capsules drift away
-      tl.to(
-        satellite1Ref.current,
-        {
-          x: -180,
-          y: -80,
-          opacity: 0,
-          scale: 0.8,
-          ease: "power2.out",
-        },
-        0.05
-      );
-
-      tl.to(
-        satellite2Ref.current,
-        {
-          x: 180,
-          y: 80,
-          opacity: 0,
-          scale: 0.8,
-          ease: "power2.out",
-        },
-        0.05
-      );
-
-      // 4. Phone scales up dramatically into the viewport
-      tl.to(
-        phoneWrapperRef.current,
-        {
-          scale: 1.48,
-          y: 35,
-          rotateX: 0,
-          rotateY: 0,
-          ease: "power2.inOut",
-        },
-        0
-      );
-
-      return () => {
-        ScrollTrigger.getAll().forEach((st) => {
-          if (st.trigger === heroRef.current) st.kill();
-        });
-      };
+      tl.from(badgeRef.current, { y: -20, opacity: 0, duration: 0.6 })
+        .from(titleLeftRef.current, { y: 24, opacity: 0, duration: 0.7 }, "-=0.4")
+        .from(titleRightRef.current, { y: 24, opacity: 0, duration: 0.7 }, "-=0.5")
+        .from(subtitleRef.current, { y: 20, opacity: 0, duration: 0.7 }, "-=0.5")
+        .from(ctaRef.current, { y: 20, opacity: 0, duration: 0.7 }, "-=0.5")
+        .from(phoneWrapperRef.current, { scale: 0.92, opacity: 0, duration: 0.9, ease: "back.out(1.2)" }, "-=0.6")
+        .from([satellite1Ref.current, satellite2Ref.current], { scale: 0.7, opacity: 0, stagger: 0.15, duration: 0.6 }, "-=0.4");
     },
     { scope: heroRef }
   );
@@ -225,13 +144,13 @@ export const HeroSection = () => {
               </Magnet>
 
               <a
-                href="#choreography"
+                href="#features"
                 data-cursor="pointer"
                 data-cursor-text="EXPLORE"
                 className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-7 py-4 rounded-2xl text-sm font-bold text-white bg-white/5 hover:bg-white/10 border border-white/15 backdrop-blur-md transition-all duration-300 hover:border-[#315BFF]"
               >
                 <Compass className="w-4 h-4 text-[#B9A8FF]" />
-                <span>3D Choreography</span>
+                <span>Explore Features</span>
               </a>
             </div>
 
