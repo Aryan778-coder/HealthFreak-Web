@@ -2,9 +2,7 @@ import { useRef, useState } from "react";
 import { gsap, useGSAP } from "@/utils/gsapSetup";
 import {
   Sparkles,
-  ShieldCheck,
   Layers,
-  Cpu,
 } from "lucide-react";
 
 export default function ImpossiblePhoneChoreography() {
@@ -15,13 +13,6 @@ export default function ImpossiblePhoneChoreography() {
   const leftDeviceRef = useRef(null);
   const midDeviceRef = useRef(null);
   const rightDeviceRef = useRef(null);
-
-  // References for exploded layers of mid device
-  const chassisLayerRef = useRef(null);
-  const circuitLayerRef = useRef(null);
-  const screenLayerRef = useRef(null);
-  const glassLayerRef = useRef(null);
-  const hudLayerRef = useRef(null);
 
   // Stage indicator state
   const [activeStage, setActiveStage] = useState(1);
@@ -57,19 +48,32 @@ export default function ImpossiblePhoneChoreography() {
       // Initial Stage: Set generous, distinct gaps between the 3 phones
       // -------------------------------------------------------------
       gsap.set(leftDeviceRef.current, {
-        x: -380,
+        x: -390,
         y: 0,
-        rotationY: 18,
+        z: 0,
+        rotationY: 16,
         rotationX: -4,
         rotationZ: 0,
         scale: 0.93,
+        opacity: 1,
+      });
+
+      gsap.set(midDeviceRef.current, {
+        x: 0,
+        y: 0,
+        z: 30,
+        rotationY: 0,
+        rotationX: 0,
+        rotationZ: 0,
+        scale: 1,
         opacity: 1,
       });
 
       gsap.set(rightDeviceRef.current, {
-        x: 380,
+        x: 390,
         y: 0,
-        rotationY: -18,
+        z: 0,
+        rotationY: -16,
         rotationX: -4,
         rotationZ: 0,
         scale: 0.93,
@@ -77,208 +81,148 @@ export default function ImpossiblePhoneChoreography() {
       });
 
       // -------------------------------------------------------------
-      // ACT 1 -> ACT 2: Explode middle device & fly left/right devices outward
+      // ACT 1 -> ACT 2: Center device elevates, outer devices widen smoothly
+      // (No collisions, no overlapping, generous gaps maintained throughout)
       // -------------------------------------------------------------
       tl.to(
-        leftDeviceRef.current,
+        midDeviceRef.current,
         {
-          x: -560,
-          y: -40,
-          rotationY: -40,
-          rotationZ: -8,
-          scale: 0.82,
-          opacity: 0.4,
-          ease: "power2.inOut",
-        },
-        0.15
-      );
-
-      tl.to(
-        rightDeviceRef.current,
-        {
-          x: 560,
-          y: -40,
-          rotationY: 40,
-          rotationZ: 8,
-          scale: 0.82,
-          opacity: 0.4,
-          ease: "power2.inOut",
-        },
-        0.15
-      );
-
-      // Middle device layer separation (Z-explosion)
-      tl.to(
-        chassisLayerRef.current,
-        {
-          z: -180,
-          yPercent: 12,
-          rotationX: 28,
-          rotationY: -22,
-          ease: "power2.out",
-        },
-        0.2
-      );
-
-      tl.to(
-        circuitLayerRef.current,
-        {
-          z: -80,
-          yPercent: 6,
-          rotationX: 28,
-          rotationY: -22,
-          ease: "power2.out",
-        },
-        0.22
-      );
-
-      tl.to(
-        screenLayerRef.current,
-        {
-          z: 20,
-          rotationX: 28,
-          rotationY: -22,
-          ease: "power2.out",
-        },
-        0.24
-      );
-
-      tl.to(
-        glassLayerRef.current,
-        {
-          z: 90,
-          yPercent: -6,
-          rotationX: 28,
-          rotationY: -22,
-          ease: "power2.out",
-        },
-        0.26
-      );
-
-      tl.to(
-        hudLayerRef.current,
-        {
-          z: 180,
-          yPercent: -14,
-          rotationX: 28,
-          rotationY: -22,
-          opacity: 1,
+          z: 110,
           scale: 1.08,
+          y: -10,
           ease: "power2.out",
         },
-        0.28
-      );
-
-      // -------------------------------------------------------------
-      // ACT 2 -> ACT 3: Dynamic 3D Carousel Orbit & Perspective Inversion
-      // -------------------------------------------------------------
-      tl.to(
-        stageRef.current,
-        {
-          rotationY: 180,
-          scale: 1.05,
-          ease: "power1.inOut",
-        },
-        0.55
-      );
-
-      tl.to(
-        [chassisLayerRef.current, circuitLayerRef.current, glassLayerRef.current],
-        {
-          z: 0,
-          yPercent: 0,
-          rotationX: 0,
-          rotationY: 0,
-          ease: "power2.inOut",
-        },
-        0.58
-      );
-
-      tl.to(
-        hudLayerRef.current,
-        {
-          z: 30,
-          yPercent: 0,
-          rotationX: 0,
-          rotationY: 0,
-          ease: "power2.inOut",
-        },
-        0.58
+        0.15
       );
 
       tl.to(
         leftDeviceRef.current,
         {
-          x: 340,
-          y: 20,
-          rotationY: 195,
-          scale: 0.88,
-          opacity: 0.85,
-          ease: "power1.inOut",
+          x: -430,
+          y: 10,
+          z: -40,
+          rotationY: 22,
+          scale: 0.89,
+          opacity: 0.8,
+          ease: "power2.inOut",
         },
-        0.58
+        0.15
       );
 
       tl.to(
         rightDeviceRef.current,
         {
-          x: -340,
-          y: -20,
-          rotationY: 165,
-          scale: 0.88,
-          opacity: 0.85,
-          ease: "power1.inOut",
+          x: 430,
+          y: 10,
+          z: -40,
+          rotationY: -22,
+          scale: 0.89,
+          opacity: 0.8,
+          ease: "power2.inOut",
         },
-        0.58
+        0.15
       );
 
       // -------------------------------------------------------------
-      // ACT 3 -> ACT 4: Grand Slam Convergence into Single Hero Device
+      // ACT 2 -> ACT 3: Synchronized multi-angle perspective orbit
+      // (Phones remain strictly in their lanes; zero crossing or collision)
       // -------------------------------------------------------------
       tl.to(
         stageRef.current,
         {
-          rotationY: 360,
-          rotationX: 0,
-          scale: 1.25,
-          ease: "power3.out",
+          rotationY: 6,
+          rotationX: 2,
+          ease: "power1.inOut",
         },
-        0.82
+        0.52
       );
 
       tl.to(
-        [leftDeviceRef.current, rightDeviceRef.current],
+        midDeviceRef.current,
         {
-          x: 0,
+          z: 50,
+          scale: 1.02,
           y: 0,
-          scale: 0.6,
+          ease: "power1.inOut",
+        },
+        0.52
+      );
+
+      tl.to(
+        leftDeviceRef.current,
+        {
+          x: -390,
+          y: -8,
+          z: 40,
+          rotationY: 10,
+          scale: 0.94,
+          opacity: 0.95,
+          ease: "power1.inOut",
+        },
+        0.52
+      );
+
+      tl.to(
+        rightDeviceRef.current,
+        {
+          x: 390,
+          y: 8,
+          z: -20,
+          rotationY: -18,
+          scale: 0.91,
+          opacity: 0.85,
+          ease: "power1.inOut",
+        },
+        0.52
+      );
+
+      // -------------------------------------------------------------
+      // ACT 3 -> ACT 4: Flagship Showcase (Center phone takes main stage)
+      // (Outer phones fade gracefully outward, center phone scales up)
+      // -------------------------------------------------------------
+      tl.to(
+        stageRef.current,
+        {
+          rotationY: 0,
+          rotationX: 0,
+          ease: "power2.out",
+        },
+        0.80
+      );
+
+      tl.to(
+        midDeviceRef.current,
+        {
+          z: 130,
+          scale: 1.14,
+          y: -10,
+          ease: "power2.out",
+        },
+        0.80
+      );
+
+      tl.to(
+        leftDeviceRef.current,
+        {
+          x: -450,
+          y: 35,
+          scale: 0.82,
           opacity: 0,
           ease: "power2.in",
         },
-        0.82
+        0.80
       );
 
       tl.to(
-        screenLayerRef.current,
+        rightDeviceRef.current,
         {
-          z: 0,
-          rotationX: 0,
-          rotationY: 0,
-          scale: 1.05,
-          ease: "power3.out",
+          x: 450,
+          y: 35,
+          scale: 0.82,
+          opacity: 0,
+          ease: "power2.in",
         },
-        0.85
-      );
-
-      tl.to(
-        hudLayerRef.current,
-        {
-          z: 40,
-          opacity: 1,
-          scale: 1.02,
-          ease: "power3.out",
-        },
-        0.85
+        0.80
       );
     },
     { scope: containerRef }
@@ -310,9 +254,9 @@ export default function ImpossiblePhoneChoreography() {
         </div>
         <p className="text-xs text-zinc-400 font-mono tracking-wider">
           {activeStage === 1 && "TRIAD EQUILIBRIUM · 3-AXIS COGNITION"}
-          {activeStage === 2 && "Z-DEPTH DECONSTRUCTION · 5 DISCRETE LAYERS"}
-          {activeStage === 3 && "360° ISOMETRIC ORBIT · SCREEN TRANSITION"}
-          {activeStage === 4 && "CONVERGENCE MATRIX · SOVEREIGN COMPACT"}
+          {activeStage === 2 && "ELEVATED FOCUS · CIRCADIAN TRACKING"}
+          {activeStage === 3 && "SYNCHRONIZED HARMONY · MULTI-SURFACE VIEW"}
+          {activeStage === 4 && "FLAGSHIP SHOWCASE · FULL SUITE"}
         </p>
       </div>
 
@@ -333,7 +277,7 @@ export default function ImpossiblePhoneChoreography() {
             ref={leftDeviceRef}
             className="absolute w-full h-full pointer-events-none"
             style={{
-              transform: "translate3d(-380px, 0px, 0px) rotateY(18deg) rotateX(-4deg) scale(0.93)",
+              transform: "translate3d(-390px, 0px, 0px) rotateY(16deg) rotateX(-4deg) scale(0.93)",
               transformStyle: "preserve-3d",
             }}
           >
@@ -359,7 +303,7 @@ export default function ImpossiblePhoneChoreography() {
             ref={rightDeviceRef}
             className="absolute w-full h-full pointer-events-none"
             style={{
-              transform: "translate3d(380px, 0px, 0px) rotateY(-18deg) rotateX(-4deg) scale(0.93)",
+              transform: "translate3d(390px, 0px, 0px) rotateY(-16deg) rotateX(-4deg) scale(0.93)",
               transformStyle: "preserve-3d",
             }}
           >
@@ -379,120 +323,42 @@ export default function ImpossiblePhoneChoreography() {
           </div>
 
           {/* ============================================================== */}
-          {/* CENTER EXPLODED DEVICE (Multi-Layer Z-Deconstruction) */}
+          {/* CENTER FLAGSHIP DEVICE (Smart Hydration & Sleep) */}
           {/* ============================================================== */}
           <div
             ref={midDeviceRef}
             className="relative w-full h-full"
-            style={{ transformStyle: "preserve-3d" }}
+            style={{
+              transform: "translate3d(0px, 0px, 30px)",
+              transformStyle: "preserve-3d",
+            }}
           >
-            {/* Layer 1: Titanium Rear Chassis */}
-            <div
-              ref={chassisLayerRef}
-              className="absolute inset-0 rounded-[44px] bg-gradient-to-br from-zinc-700 via-zinc-800 to-zinc-950 border-2 border-zinc-600/80 shadow-[0_30px_70px_rgba(0,0,0,0.9)] p-2"
-              style={{ transformStyle: "preserve-3d" }}
+            <PhoneFrame
+              title="HYDRATION & RECOVERY"
+              accent="#D5F45B"
+              badge="CIRCADIAN CORE"
             >
-              <div className="w-full h-full rounded-[38px] bg-zinc-900 flex flex-col items-center justify-between p-6 opacity-60">
-                <div className="w-12 h-1 bg-zinc-700 rounded-full" />
-                <div className="flex flex-col items-center gap-2">
-                  <ShieldCheck className="w-8 h-8 text-[#D5F45B]" />
-                  <span className="text-[10px] font-mono tracking-widest text-zinc-500">
-                    TITANIUM GRADE-5 SHELL
-                  </span>
-                </div>
-                <div className="w-16 h-16 rounded-full border border-dashed border-zinc-700 flex items-center justify-center">
-                  <span className="text-[9px] font-mono text-zinc-500">MAGSAFE</span>
-                </div>
+              <div className="relative w-full h-full bg-[#0C0F17] flex flex-col overflow-hidden">
+                <img
+                  src="/assets/screenshots/app_hydration_sleep.jpg"
+                  alt="HealthFreak Smart Hydration & Sleep"
+                  className="w-full h-full object-cover object-top"
+                />
               </div>
+            </PhoneFrame>
+
+            {/* Top Live Badge */}
+            <div className="absolute -top-4 left-1/2 -translate-x-1/2 pointer-events-none px-3.5 py-1.5 rounded-xl bg-black/85 border border-[#D5F45B]/60 backdrop-blur-md shadow-2xl text-[11px] font-mono text-[#D5F45B] flex items-center gap-2 whitespace-nowrap z-20">
+              <Sparkles className="w-3.5 h-3.5" />
+              <span>LIVE AI WELLNESS SYNAPSE</span>
             </div>
 
-            {/* Layer 2: Neural NPU Engine Circuit */}
-            <div
-              ref={circuitLayerRef}
-              className="absolute inset-0 rounded-[44px] p-4 pointer-events-none"
-              style={{ transformStyle: "preserve-3d" }}
-            >
-              <div className="w-full h-full rounded-[38px] border border-[#D5F45B]/40 bg-[#0B101E]/80 backdrop-blur-sm p-6 flex flex-col justify-between">
-                <div className="flex justify-between items-center text-[10px] font-mono text-[#D5F45B]">
-                  <span className="flex items-center gap-1">
-                    <Cpu className="w-3.5 h-3.5" /> HEALTHFREAK NEURAL NPU
-                  </span>
-                  <span>3.8 TFLOPS</span>
-                </div>
-                <div className="grid grid-cols-4 gap-2 py-8">
-                  {Array.from({ length: 12 }).map((_, i) => (
-                    <div
-                      key={i}
-                      className="h-10 rounded border border-[#315BFF]/30 bg-[#315BFF]/5 flex items-center justify-center text-[9px] font-mono text-cyan-300"
-                    >
-                      CORE_{i + 1}
-                    </div>
-                  ))}
-                </div>
-                <div className="text-[10px] font-mono text-zinc-500">
-                  LOW-POWER ON-DEVICE INFERENCE
-                </div>
-              </div>
-            </div>
-
-            {/* Layer 3: AMOLED Main Interface Screen */}
-            <div
-              ref={screenLayerRef}
-              className="absolute inset-0 rounded-[44px] pointer-events-none"
-              style={{ transformStyle: "preserve-3d" }}
-            >
-              <div className="w-full h-full rounded-[44px] bg-[#0A0D18] border-2 border-white/20 p-2 shadow-2xl overflow-hidden flex flex-col">
-                {/* Status Header */}
-                <div className="flex justify-between items-center px-4 py-2 border-b border-white/10 text-[10px] font-mono text-zinc-300">
-                  <span className="font-bold text-[#D5F45B] tracking-wider">
-                    HYDRATION & SLEEP
-                  </span>
-                  <span className="px-2 py-0.5 rounded-full bg-white/10 text-white/90">
-                    CIRCADIAN CORE
-                  </span>
-                </div>
-
-                {/* Real App Screenshot: Smart Hydration & Sleep */}
-                <div className="flex-1 rounded-[34px] overflow-hidden mt-1 relative bg-[#0C0F17]">
-                  <img
-                    src="/assets/screenshots/app_hydration_sleep.jpg"
-                    alt="HealthFreak Smart Hydration & Sleep"
-                    className="w-full h-full object-cover object-top"
-                  />
-                </div>
-              </div>
-            </div>
-
-            {/* Layer 4: Specular Sapphire Glass Refraction */}
-            <div
-              ref={glassLayerRef}
-              className="absolute inset-0 rounded-[44px] pointer-events-none border border-white/40 shadow-inner"
-              style={{
-                background:
-                  "linear-gradient(135deg, rgba(255,255,255,0.25) 0%, rgba(255,255,255,0) 40%, rgba(255,255,255,0.08) 100%)",
-                transformStyle: "preserve-3d",
-              }}
-            />
-
-            {/* Layer 5: Floating Holographic Activity HUD Widgets */}
-            <div
-              ref={hudLayerRef}
-              className="absolute inset-0 pointer-events-none flex flex-col justify-between p-2"
-              style={{ transformStyle: "preserve-3d" }}
-            >
-              {/* Top Hovering Badge */}
-              <div className="self-center -mt-4 px-3.5 py-1.5 rounded-xl bg-black/85 border border-[#D5F45B]/60 backdrop-blur-md shadow-2xl text-[11px] font-mono text-[#D5F45B] flex items-center gap-2">
-                <Sparkles className="w-3.5 h-3.5" />
-                <span>LIVE AI WELLNESS SYNAPSE</span>
-              </div>
-
-              {/* Bottom Hovering Metric Card */}
-              <div className="self-center -mb-4 px-4 py-2 rounded-xl bg-black/85 border border-[#315BFF]/70 backdrop-blur-md shadow-2xl text-center">
-                <div className="text-[10px] font-mono text-zinc-400">DAILY ACTIVE BURN</div>
-                <div className="text-sm font-bold text-white font-mono flex items-center justify-center gap-2">
-                  624 kcal
-                  <span className="text-[10px] text-[#D5F45B]">OPTIMAL</span>
-                </div>
+            {/* Bottom Metric Card */}
+            <div className="absolute -bottom-4 left-1/2 -translate-x-1/2 pointer-events-none px-4 py-2 rounded-xl bg-black/85 border border-[#315BFF]/70 backdrop-blur-md shadow-2xl text-center whitespace-nowrap z-20">
+              <div className="text-[10px] font-mono text-zinc-400">DAILY ACTIVE BURN</div>
+              <div className="text-sm font-bold text-white font-mono flex items-center justify-center gap-2">
+                624 kcal
+                <span className="text-[10px] text-[#D5F45B]">OPTIMAL</span>
               </div>
             </div>
           </div>
